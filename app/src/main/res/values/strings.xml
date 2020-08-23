@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DanaTest</string>
+    <string name="test1_title">Прямой перевод</string>
+    <string name="test1_description">Укажите верный перевод слова</string>
+    <string name="test2_title">Вставить слово</string>
+    <string name="test2_description">Вставьте подходящее слово в предложение</string>
+    <string name="test3_title">Четыре варианта</string>
+    <string name="test3_description">Выберите верный вариант перевода слова</string>
+    <string name="test4_title">Перемешать</string>
+    <string name="test4_description">Угадайте слово, буквы в котором перемешаны</string>
+</resources>
