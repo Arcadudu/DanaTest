@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dictionaries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (MainActivity.this, DictionariesActivity.class);
+                Intent intent = new Intent (MainActivity.this, Dictionaries_Activity.class);
                 startActivity(intent);
             }
         });
