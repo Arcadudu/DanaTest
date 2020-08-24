@@ -8,4 +8,7 @@
     <string name="test3_description">Выберите верный вариант перевода слова</string>
     <string name="test4_title">Перемешать</string>
     <string name="test4_description">Угадайте слово, буквы в котором перемешаны</string>
+
+    <string name="home_title">Доступные тесты</string>
+    <string name="topic_picker_title">Доступные темы</string>
 </resources>
