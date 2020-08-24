@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final TextView tv_home_title = findViewById(R.id.tv_activity_title);
 
-        // Кнопка выхода из приложения
+        // Иконка выхода из приложения
         ImageView exit = findViewById(R.id.iv_exit_app);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 onBackPressed();
             }
         });
+
+        // Иконка словарей
+        ImageView dictionaries = findViewById(R.id.iv_dictionaries);
+        dictionaries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (MainActivity.this, DictionariesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         // Кнопки выбора теста
         Button test1 = findViewById(R.id.btn_test1);
