@@ -59,23 +59,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // закоментил до момента создания TopicPickerActivity
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, TopicPickerActivity.class);
-        switch (view.getId()) {
-            case R.id.btn_test1:
-                intent.putExtra(TEST_PICKED, "test1");
-                break;
-            case R.id.btn_test2:
-                intent.putExtra(TEST_PICKED, "test2");
-                break;
-            case R.id.btn_test3:
-                intent.putExtra(TEST_PICKED, "test3");
-                break;
-            case R.id.btn_test4:
-                intent.putExtra(TEST_PICKED, "test4");
-                break;
-        }
-        startActivity(intent);
+        //Intent intent = new Intent(this, TopicPickerActivity.class);
+        //switch (view.getId()) {
+        //    case R.id.btn_test1:
+        //        intent.putExtra(TEST_PICKED, "test1");
+        //        break;
+        //    case R.id.btn_test2:
+        //        intent.putExtra(TEST_PICKED, "test2");
+        //        break;
+        //    case R.id.btn_test3:
+        //        intent.putExtra(TEST_PICKED, "test3");
+        //        break;
+        //    case R.id.btn_test4:
+        //        intent.putExtra(TEST_PICKED, "test4");
+        //        break;
+        //}
+        //startActivity(intent);
     }
 }
