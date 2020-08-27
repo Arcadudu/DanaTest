@@ -62,7 +62,7 @@ public class Dictionary {
     }
 
     // add pair of words to existing dictionary
-    public void addPair(Map<String, String> pairs, String word, String translation) {
+    public void addPair(String word, String translation) {
         pairs.put(word, translation);
     }
 
