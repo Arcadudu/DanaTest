@@ -11,6 +11,8 @@
     <color name="white">#FFFFFF</color>
     <color name="hint_color">#B9E5F6</color>
 
+    <color name="scrollbar_track">#E0F6FF</color>
+
     <color name="green_correct">#92EC1E</color>
     <color name="red_incorrect">#FF4B4B</color>
 

@@ -23,23 +23,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_preview"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="@color/white"
-        android:gravity="center_vertical|start"
-        android:paddingStart="15dp"
-        android:shadowColor="@color/shadow"
-        android:shadowDy="1"
-        android:shadowRadius="1"
-        android:text="word1, word2, word3, word4"
-        android:textColor="@color/blue_active"
-        android:textSize="16sp"
-        android:textStyle="italic"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="1dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbarFadeDuration="500"
+        android:scrollbarThumbHorizontal="@color/blue_active"
+        android:scrollbarTrackHorizontal="@color/scrollbar_track"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_topic_title" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_topic_title">
+
+        <TextView
+            android:id="@+id/tv_preview"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@color/white"
+            android:gravity="center_vertical|start"
+            android:paddingStart="15dp"
+            android:shadowColor="@color/shadow"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="word1, word2, word3, word4"
+            android:textColor="@color/blue_active"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_topic_title" />
+
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/amount"
@@ -56,7 +72,8 @@
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_preview" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

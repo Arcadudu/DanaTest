@@ -76,7 +76,7 @@ public class Topic {
         //}
 
         for (String word : words) {
-            preview.append(word+" ");
+            preview.append(word+"   ");
         }
 
         return preview.toString().trim();
