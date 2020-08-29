@@ -1,5 +1,6 @@
 package ru.arcadudu.danatest;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TEST_PICKED = "topic_picked";
     private static int clicks = 0;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        // Иконка словарей
+
         ImageView dictionaries = findViewById(R.id.iv_dictionaries);
-        dictionaries.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (MainActivity.this, Dictionaries_Activity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
         // Кнопки выбора теста

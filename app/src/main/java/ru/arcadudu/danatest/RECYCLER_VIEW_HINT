@@ -1,0 +1,46 @@
+1. подключение зависимостей (либо из редактора дизайна, либо через Gradle module : app)
+
+2. размещение RecyclerView на целевом макете
+
+3. создание макета для viewHolder (лучше использовать в качестве корневого контейнера constraintLayout)
+
+4. создание необходимого функционального класса для формирования и передачи необходимых данных
+
+5. создание адаптера (расширяет RecyclerView.Adapter<RecyclerView.ViewHolder>
+5.1. Для начала создадим приватный финальный лист объектов требуемого класса (п.2)
+5.2. Далее нужно объявить конструктор, принимающий на вход список объектов функ. класса (п.2)
+
+6. (опиционально) создание кастомного ViewHolder для дальнейшего использования в RecyclerView
+
+7. наполнение основных методов адаптера:
+7.1. onCreateViewHolder() - метод создания ViewHolder с использованием Inflate для "надувания"
+        view-элементов из заготовленного макета (п. 3)
+        (опционально попробовать не создавать кастомный ViewHolder, а воспользоваться дефолтным и
+        к нему присобачить inflater)
+7.2. onBindViewHolder(ViewHolder holder, int position) - метод привязки данных к viewHolder.
+        Здесь определяем компоненты из ViewHolder-макета, привязываемся к ним по id по формуле:
+        (например) TextView name = holder.itemView.findViewById(R.id.tv_name);
+        подрубаем необходимые данные к компонентам через setText по формуле:
+        name.setText(this.list.get(position).getName());
+7.3. getItemCount() - отображает общее количество элеметов, имеющихся в списке объектов
+        возвращаем количество элементов списка объектов
+
+8. необходимые приколюхи в основной активити для работы с recyclerView :
+
+получаем recyclerView по id в коде.
+
+после определения по айди:
+recycler.setHasFixedSize(true); (false если не знаем сколько элементов)
+recycler.setLayoutManager(new LinearLayoutManager , this) - второй параметр - контекст
+recycler.setAdapter(myAdapter)
+
+если в проекте предусмотрено добавление элементов в recyclerView по нажатию кнопки или еще как-то,
+то можно на это самое нажатие повесить событие, например добавление элемента:
+Например:
+
+public void add(View view){
+EditText edit = this.findViewById(R.id.edit_text);
+this.list.add(new Item(edit.getText().toString()));
+edit.setText("");
+(опционально) можно использовать нотифайер адаптера (рекомендуется notifyItemInserted)
+}
