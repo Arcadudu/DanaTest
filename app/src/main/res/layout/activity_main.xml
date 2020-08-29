@@ -67,7 +67,7 @@
     <Button
         android:id="@+id/btn_test1"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="10dp"
@@ -80,6 +80,7 @@
         android:text="@string/test1_title"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +109,7 @@
     <Button
         android:id="@+id/btn_test2"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
@@ -121,6 +122,7 @@
         android:text="@string/test2_title"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -149,7 +151,7 @@
     <Button
         android:id="@+id/btn_test3"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
@@ -162,6 +164,7 @@
         android:text="@string/test3_title"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +195,7 @@
     <Button
         android:id="@+id/btn_test4"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
@@ -205,6 +208,7 @@
         android:text="@string/test4_title"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
