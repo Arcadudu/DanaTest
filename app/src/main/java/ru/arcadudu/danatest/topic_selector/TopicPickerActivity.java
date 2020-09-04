@@ -21,7 +21,7 @@ public class TopicPickerActivity extends AppCompatActivity {
     TextView activityTitle;
     ImageView btn_back;
     private List<Topic> topicList = new ArrayList<>();
-    private final RecyclerView.Adapter adapter = new TopicAdapter(topicList);
+    private final RecyclerView.Adapter adapter = new TopicAdapter(this, topicList);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
