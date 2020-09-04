@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ConstraintLayout constraintLayout = findViewById(R.id.constraint_layout);
-        constraintLayout.setBackground(getResources().getDrawable(R.drawable.background_main_screen, getTheme()));
+        constraintLayout.setBackground(getResources().getDrawable(R.drawable.background_main_screen_dark, getTheme()));
 
         final TextView tv_home_title = findViewById(R.id.tv_activity_title);
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
+        // Каталог словарей
         ImageView dictionaries = findViewById(R.id.iv_dictionaries);
 
 
@@ -61,16 +61,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, TopicPickerActivity.class);
         switch (view.getId()) {
             case R.id.btn_test1:
-                intent.putExtra(TEST_PICKED, "test1");
+                intent.putExtra(TEST_PICKED, "Прямой перевод");
                 break;
             case R.id.btn_test2:
-                intent.putExtra(TEST_PICKED, "test2");
+                intent.putExtra(TEST_PICKED, "Вставить слово");
                 break;
             case R.id.btn_test3:
-                intent.putExtra(TEST_PICKED, "test3");
+                intent.putExtra(TEST_PICKED, "Четыре варианта");
                 break;
             case R.id.btn_test4:
-                intent.putExtra(TEST_PICKED, "test4");
+                intent.putExtra(TEST_PICKED, "Перемешать");
                 break;
         }
         startActivity(intent);

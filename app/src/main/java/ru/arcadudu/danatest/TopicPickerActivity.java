@@ -1,6 +1,10 @@
 package ru.arcadudu.danatest;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +16,8 @@ import java.util.List;
 
 public class TopicPickerActivity extends AppCompatActivity {
 
+    TextView activityTitle;
+    ImageView btn_back;
     private List<Topic> topicList = new ArrayList<>();
     private final RecyclerView.Adapter adapter = new TopicAdapter(topicList);
 
@@ -19,6 +25,23 @@ public class TopicPickerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_picker);
+
+        activityTitle = findViewById(R.id.tv_activity_title);
+
+        Intent intent = getIntent();
+        if(intent.hasExtra("topic_picked")){
+            String title = intent.getStringExtra("topic_picked");
+            activityTitle.setText(title);
+        }
+
+        // Иконка "назад"
+        btn_back = findViewById(R.id.iv_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         //////// пока просто попробуем с одиночными объектами
 

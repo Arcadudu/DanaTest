@@ -18,4 +18,23 @@
 
     <color name="shadow">#B3B3B3</color>
 
+
+<!--dark_pallet-->
+
+    <!--common-->
+    <color name="dark_statusbar_color">#373737</color>
+    <color name="dark_background_main">#2E2E2E</color>
+    <!--text-->
+    <color name="dark_title_text_color">#C8CFD1</color>
+    <color name="dark_description_text_color">#BBBBBB</color>
+    <!--icons & drawings-->
+    <color name="dark_icons_color">#C8CFD1</color>
+    <color name="dark_borderline_color">#C8CFD1</color>
+
+    <color name="dark_hint_text_color">#A3A3A3</color>
+
+    <color name="dark_scrollbar_color">#656565</color>
+    <color name="dark_scrollbar_track_color">#373737</color>
+
+
 </resources>
