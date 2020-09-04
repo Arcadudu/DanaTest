@@ -1,5 +1,7 @@
 package ru.arcadudu.danatest.topic_selector;
 
+import android.provider.ContactsContract;
+
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +22,8 @@ public class Topic {
         this.words = words;
         this.translations = translations;
         this.size = words.size();
+//        pack = getPack(words, translations);
+
 
         //if (words.size() == translations.size()) {
         //    this.size = words.size();
@@ -28,10 +32,10 @@ public class Topic {
 
     //// getter
 
-    public Map<String, String> getPack(){
-        if(words.size()==translations.size()){
-            for (int i = 0; i <words.size() ; i++) {
-                if(words.get(i)!=null && translations.get(i)!=null){
+    public Map<String, String> getPack(List<String> words, List<String> translations) {
+        if (words.size() == translations.size()) {
+            for (int i = 0; i < words.size(); i++) {
+                if (words.get(i) != null && translations.get(i) != null) {
                     pack.put(words.get(i), translations.get(i));
                 }
             }
@@ -63,33 +67,21 @@ public class Topic {
 
         StringBuilder preview = new StringBuilder();
 
-        //     // list contains at least 4 words
-        //if (this.words.size() >= 4) {
-        //    for (int i = 0; i < 4; i++) {
-        //        preview.append(words.get(i)).append(" ");
-        //    }
-        //    // list contains less than 4 words
-        //} else {
-        //    for (int i = 0; i < words.size(); i++) {
-        //        preview.append(words.get(i)).append(" ");
-        //    }
-        //}
 
         for (String word : words) {
-            preview.append(word+"   ");
+            preview.append(word).append("   ");
         }
 
         return preview.toString().trim();
     }
 
-    //// setter
+    //// задать название топику
 
     public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
-    /// add new pair to pack
-
+    /// добавить новую пару  слово -> перевод
     public void addPair(String newWord, String newTranslation) {
         pack.put(newWord, newTranslation);
     }
