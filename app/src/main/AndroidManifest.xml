@@ -8,9 +8,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test1EnterWord"></activity>
-        <activity android:name=".TopicPickerActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".test1.Test1EnterWord"></activity>
+        <activity android:name=".topic_selector.TopicPickerActivity" />
+        <activity android:name=".test_selector.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

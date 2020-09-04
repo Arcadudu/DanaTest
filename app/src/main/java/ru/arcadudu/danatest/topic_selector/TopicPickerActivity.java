@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest;
+package ru.arcadudu.danatest.topic_selector;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import ru.arcadudu.danatest.R;
 
 public class TopicPickerActivity extends AppCompatActivity {
 

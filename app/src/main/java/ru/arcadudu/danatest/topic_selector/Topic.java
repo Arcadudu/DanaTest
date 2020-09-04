@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest;
+package ru.arcadudu.danatest.topic_selector;
 
 import java.util.List;
 import java.util.Map;

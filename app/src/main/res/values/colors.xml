@@ -31,7 +31,7 @@
     <color name="dark_icons_color">#C8CFD1</color>
     <color name="dark_borderline_color">#C8CFD1</color>
 
-    <color name="dark_hint_text_color">#A3A3A3</color>
+    <color name="dark_hint_text_color">#9F9F9F</color>
 
     <color name="dark_scrollbar_color">#656565</color>
     <color name="dark_scrollbar_track_color">#373737</color>

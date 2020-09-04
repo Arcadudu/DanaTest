@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest;
+package ru.arcadudu.danatest.test_selector;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import ru.arcadudu.danatest.R;
+import ru.arcadudu.danatest.test1.Test1EnterWord;
+import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +42,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Каталог словарей
         ImageView dictionaries = findViewById(R.id.iv_dictionaries);
+
+        /// временно подвяжем первый тест на иконку словарей
+        dictionaries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Test1EnterWord.class);
+                startActivity(intent);
+            }
+        });
 
 
 

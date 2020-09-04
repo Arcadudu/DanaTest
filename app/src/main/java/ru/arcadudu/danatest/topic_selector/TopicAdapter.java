@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest;
+package ru.arcadudu.danatest.topic_selector;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import ru.arcadudu.danatest.R;
 
 public class TopicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
