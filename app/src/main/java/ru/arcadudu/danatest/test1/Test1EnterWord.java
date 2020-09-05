@@ -9,7 +9,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import ru.arcadudu.danatest.R;
+import ru.arcadudu.danatest.topic_selector.Topic;
+import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class Test1EnterWord extends AppCompatActivity {
 
@@ -19,6 +23,8 @@ public class Test1EnterWord extends AppCompatActivity {
     TextView questWord, wordCounter;
     EditText answerField;
     Button btnNext, btnClear;
+
+    List<Topic> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,11 @@ public class Test1EnterWord extends AppCompatActivity {
                 answerField.setText("");
             }
         });
+
+        // Получаем лист с темами
+        list = new TopicPickerActivity().getTopicList();
+
+
 
 
     }
