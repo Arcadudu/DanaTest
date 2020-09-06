@@ -44,6 +44,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
         return topicList.size();
     }
 
+
+    //--------------------------------------ViewHolder----------------------------------------------
     public static class MyTopicViewHolder extends RecyclerView.ViewHolder {
 
         Button btn_title;
