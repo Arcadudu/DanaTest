@@ -18,10 +18,12 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
 
     private final List<Topic> topicList;
     Context context;
+    private OnTopicListener listener;
 
-    public TopicAdapter(Context ct, List<Topic> topicList) {
+    public TopicAdapter(Context ct, List<Topic> topicList, OnTopicListener listener) {
         this.topicList = topicList;
         this.context = ct;
+        this.listener = listener;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
     public TopicAdapter.MyTopicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_view_holder_topic_picker, parent, false);
-        return new MyTopicViewHolder(view);
+        return new MyTopicViewHolder(view, listener);
     }
 
     @Override
@@ -46,16 +48,28 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
 
 
     //--------------------------------------ViewHolder----------------------------------------------
-    public static class MyTopicViewHolder extends RecyclerView.ViewHolder {
+    public static class MyTopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         Button btn_title;
         TextView tv_preview, tv_amount;
+        OnTopicListener listener;
 
-        public MyTopicViewHolder(@NonNull View itemView) {
+        public MyTopicViewHolder(@NonNull View itemView, OnTopicListener listener) {
             super(itemView);
             btn_title = itemView.findViewById(R.id.btn_topic_title);
             tv_preview = itemView.findViewById(R.id.tv_preview);
             tv_amount = itemView.findViewById(R.id.amount);
+            this.listener = listener;
+            btn_title.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            listener.onTopicClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnTopicListener{
+        void onTopicClick(int position);
     }
 }

@@ -2,12 +2,15 @@ package ru.arcadudu.danatest.test1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,6 +20,7 @@ import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class Test1EnterWord extends AppCompatActivity {
 
+    private static final String TAG = "tag";
     TextView currentTest, currentTopic;
 
     ImageView endTest, restartTest;
@@ -61,6 +65,16 @@ public class Test1EnterWord extends AppCompatActivity {
                 answerField.setText("");
             }
         });
+
+        Intent incomingIntent = getIntent();
+        if(incomingIntent.hasExtra("title")){
+            Log.d(TAG, "onCreate: incoming intent has Extra!");
+            if(incomingIntent.getExtras() != null){
+                currentTest.setText(incomingIntent.getExtras().getString("title"));
+            }else{
+                Toast.makeText(this, "NO EXTRAS FOUND!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
         // Получаем лист с темами
         list = new TopicPickerActivity().getTopicList();

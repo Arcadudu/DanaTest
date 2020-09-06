@@ -2,6 +2,7 @@ package ru.arcadudu.danatest.topic_selector;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,9 +16,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import ru.arcadudu.danatest.R;
+import ru.arcadudu.danatest.test1.Test1EnterWord;
 
-public class TopicPickerActivity extends AppCompatActivity {
+public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 
+    private static final String TAG = "tag";
     TextView activityTitle;
     ImageView btn_back;
     private List<Topic> topicList = new ArrayList<>();
@@ -60,7 +63,7 @@ public class TopicPickerActivity extends AppCompatActivity {
     }
 
     private void setRecyclerAdapter() {
-        adapter = new TopicAdapter(this, topicList);
+        adapter = new TopicAdapter(this, topicList, this);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,5 +92,13 @@ public class TopicPickerActivity extends AppCompatActivity {
         topicList.add(new Topic("Части тела", bodyRuList, bodyEngList));
         topicList.add(new Topic("Временные константы", timeRuList, timeEngList));
         topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, houseBasicEngList));
+    }
+
+    @Override
+    public void onTopicClick(int position) {
+        Log.d(TAG, "onTopicClick: clicked on"+topicList.get(position).getTitle());
+        Intent intent = new Intent(this, Test1EnterWord.class);
+        intent.putExtra("title", topicList.get(position).getTitle());
+        startActivity(intent);
     }
 }
