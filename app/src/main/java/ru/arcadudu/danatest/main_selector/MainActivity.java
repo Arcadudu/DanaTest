@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest.test_selector;
+package ru.arcadudu.danatest.main_selector;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,7 +19,6 @@ import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TEST_PICKED = "topic_picked";
-    private static int clicks = 0;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -43,14 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Каталог словарей
         ImageView dictionaries = findViewById(R.id.iv_dictionaries);
 
-        /// временно подвяжем первый тест на иконку словарей
-        dictionaries.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Test1EnterWord.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
@@ -71,21 +64,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // закоментил до момента создания TopicPickerActivity
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, TopicPickerActivity.class);
+        Intent intent;
         switch (view.getId()) {
             case R.id.btn_test1:
+                intent = new Intent(this, TopicPickerActivity.class);
                 intent.putExtra(TEST_PICKED, "Прямой перевод");
+                startActivity(intent);
                 break;
             case R.id.btn_test2:
-                intent.putExtra(TEST_PICKED, "Вставить слово");
+                Toast.makeText(this, "Раздел \"Вставить слово\" в разработке...", Toast.LENGTH_SHORT).show();
+//                intent.putExtra(TEST_PICKED, "Вставить слово");
                 break;
             case R.id.btn_test3:
-                intent.putExtra(TEST_PICKED, "Четыре варианта");
+                Toast.makeText(this, "Раздел \"Четыре варианта\" в разработке...", Toast.LENGTH_SHORT).show();
+//                intent.putExtra(TEST_PICKED, "Четыре варианта");
                 break;
             case R.id.btn_test4:
-                intent.putExtra(TEST_PICKED, "Перемешать");
+                Toast.makeText(this, "Раздел \"Перемешать\" в разработке...", Toast.LENGTH_SHORT).show();
+//                intent.putExtra(TEST_PICKED, "Перемешать");
                 break;
         }
-        startActivity(intent);
+
     }
 }

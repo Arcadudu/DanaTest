@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main_screen_dark"
     android:padding="10dp"
-    tools:context=".test_selector.MainActivity"
+    tools:context=".main_selector.MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
 

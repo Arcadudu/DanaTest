@@ -2,6 +2,7 @@ package ru.arcadudu.danatest.topic_selector;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -96,9 +98,12 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
     @Override
     public void onTopicClick(int position) {
-        Log.d(TAG, "onTopicClick: clicked on"+topicList.get(position).getTitle());
+        // на данный момент предусмотрена логика только для перехода в первый тест "перевод слова"
+        // в дальнейшем разбить слушатель для разный тестов
+
         Intent intent = new Intent(this, Test1EnterWord.class);
-        intent.putExtra("title", topicList.get(position).getTitle());
+        Topic topic = topicList.get(position);
+        intent.putExtra("title", topic.getTitle());
         startActivity(intent);
     }
 }

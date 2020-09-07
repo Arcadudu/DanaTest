@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_light"
         android:gravity="center"
-        android:text="Название теста"
+        android:text="Прямой перевод"
         android:textColor="@color/dark_title_text_color"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,8 @@
         android:fontFamily="@font/raleway_regular"
         android:text="Урбанистический"
         android:textColor="@color/dark_title_text_color"
-        android:textSize="28sp"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_current_topic_name" />
