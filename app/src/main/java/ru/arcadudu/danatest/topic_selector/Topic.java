@@ -1,36 +1,22 @@
 package ru.arcadudu.danatest.topic_selector;
 
-import android.provider.ContactsContract;
-
 import java.util.List;
 import java.util.Map;
 
 public class Topic {
 
-    //// vars
-
-    private String title;
-    private int size;
-    private List<String> words;
-    private List<String> translations;
-    private Map<String, String> pack;
-
-    //// constructor
+    private String title; // имя топика
+    private int size; // количество слов одного направления
+    private List<String> words; // список слов
+    private List<String> translations; // список переводов
+    private Map<String, String> pack; // карта  (слово — перевод)
 
     public Topic(String title, List<String> words, List<String> translations) {
         this.title = title;
         this.words = words;
         this.translations = translations;
         this.size = words.size();
-//        pack = getPack(words, translations);
-
-
-        //if (words.size() == translations.size()) {
-        //    this.size = words.size();
-        //}
     }
-
-    //// getter
 
     public Map<String, String> getPack(List<String> words, List<String> translations) {
         if (words.size() == translations.size()) {
@@ -60,9 +46,6 @@ public class Topic {
         return translations;
     }
 
-
-    //// returns 4 or less words from the list
-
     public String getPreview() {
 
         StringBuilder preview = new StringBuilder();
@@ -75,13 +58,10 @@ public class Topic {
         return preview.toString().trim();
     }
 
-    //// задать название топику
-
     public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
-    /// добавить новую пару  слово -> перевод
     public void addPair(String newWord, String newTranslation) {
         pack.put(newWord, newTranslation);
     }

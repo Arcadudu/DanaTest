@@ -2,8 +2,6 @@ package ru.arcadudu.danatest.topic_selector;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,21 +10,43 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import ru.arcadudu.danatest.R;
-import ru.arcadudu.danatest.test1.Test1EnterWord;
+import ru.arcadudu.danatest.test1_enter_word.Test1EnterWord;
 
 public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 
+    private static final String TEST_NAME = "testName";
     private static final String TAG = "tag";
+
     TextView activityTitle;
     ImageView btn_back;
+    RecyclerView recyclerView;
+
     private List<Topic> topicList = new ArrayList<>();
     private RecyclerView.Adapter adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_topic_picker);
+
+        findComponents();
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        getPossibleExtras();
+        prepareTopicList();
+        setRecyclerAdapter();
+
+
+    }
 
     public List<Topic> getTopicList() {
         return topicList;
@@ -36,37 +56,27 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         return Arrays.asList(getResources().getStringArray(stringResourceId));
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topic_picker);
-
+    private void findComponents() {
         activityTitle = findViewById(R.id.tv_activity_title);
+        btn_back = findViewById(R.id.iv_back);
+    }
 
-        Intent intent = getIntent();
-        if (intent.hasExtra("topic_picked")) {
-            String title = intent.getStringExtra("topic_picked");
+    public void getPossibleExtras() {
+        Intent incomingIntent = getIntent();
+        if (incomingIntent.getExtras() != null) {
+            if (incomingIntent.hasExtra(TEST_NAME)) {
+                activityTitle.setText(incomingIntent.getStringExtra(TEST_NAME));
+            }
+        }
+        if (incomingIntent.hasExtra("topic_picked")) {
+            String title = incomingIntent.getStringExtra("topic_picked");
             activityTitle.setText(title);
         }
-
-        // Иконка "назад"
-        btn_back = findViewById(R.id.iv_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
-        prepareTopicList();
-        setRecyclerAdapter();
-
-
     }
 
     private void setRecyclerAdapter() {
         adapter = new TopicAdapter(this, topicList, this);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

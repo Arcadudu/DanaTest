@@ -15,6 +15,11 @@
 
 
     <string name="words_counter">Количество слов: </string>
+    <string name="test_passed_title">Тест пройден</string>
+    <string name="result_action_again_title">Заново</string>
+    <string name="result_action_to_topics_title">В темы</string>
+    <string name="result_action_forward_title">Далее</string>
+    <string name="result_action_troubleshooting_title">Ошибки</string>
 
 
 </resources>

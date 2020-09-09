@@ -14,6 +14,7 @@ import java.util.List;
 
 import ru.arcadudu.danatest.R;
 
+//------------------------------------------Adapter-------------------------------------------------
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewHolder> {
 
     private final List<Topic> topicList;
@@ -50,10 +51,12 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
     //--------------------------------------ViewHolder----------------------------------------------
     public static class MyTopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        // переменные
         Button btn_title;
         TextView tv_preview, tv_amount;
         OnTopicListener listener;
 
+        // конструктор
         public MyTopicViewHolder(@NonNull View itemView, OnTopicListener listener) {
             super(itemView);
             btn_title = itemView.findViewById(R.id.btn_topic_title);
@@ -69,7 +72,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
         }
     }
 
-    public interface OnTopicListener{
+    //--------------------------------OnTopicListener Interface-------------------------------------
+    public interface OnTopicListener {
         void onTopicClick(int position);
     }
 }

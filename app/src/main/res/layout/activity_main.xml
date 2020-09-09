@@ -61,17 +61,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_dictionaries"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:scaleType="fitEnd"
-        android:src="@drawable/icon_dictionaries_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tv_activity_title"
         android:layout_width="wrap_content"

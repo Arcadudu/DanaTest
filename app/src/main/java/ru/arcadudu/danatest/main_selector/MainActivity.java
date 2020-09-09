@@ -6,19 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import ru.arcadudu.danatest.R;
-import ru.arcadudu.danatest.test1.Test1EnterWord;
 import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TEST_PICKED = "topic_picked";
+
+    ConstraintLayout constraintLayout;
+    Button test1, test2, test3, test4;
+    ImageView exitApp;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -26,46 +28,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConstraintLayout constraintLayout = findViewById(R.id.constraint_layout);
-        constraintLayout.setBackground(getResources().getDrawable(R.drawable.background_main_screen_dark, getTheme()));
+        findComponents();
+        setClickListeners();
+    }
 
-        final TextView tv_home_title = findViewById(R.id.tv_activity_title);
-
-        // Иконка выхода из приложения
-        ImageView exit = findViewById(R.id.iv_exit_app);
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
-        // Каталог словарей
-        ImageView dictionaries = findViewById(R.id.iv_dictionaries);
-
-
-
-
-
-        // Кнопки выбора теста
-        Button test1 = findViewById(R.id.btn_test1);
-        Button test2 = findViewById(R.id.btn_test2);
-        Button test3 = findViewById(R.id.btn_test3);
-        Button test4 = findViewById(R.id.btn_test4);
-
+    private void setClickListeners() {
+        exitApp.setOnClickListener(this);
         test1.setOnClickListener(this);
         test2.setOnClickListener(this);
         test3.setOnClickListener(this);
         test4.setOnClickListener(this);
+    }
 
+    private void findComponents() {
+        constraintLayout = findViewById(R.id.constraint_layout);
+        constraintLayout.setBackground(getResources().getDrawable
+                (R.drawable.background_main_screen_dark, getTheme()));
+
+        exitApp = findViewById(R.id.iv_exit_app);
+        test1 = findViewById(R.id.btn_test1);
+        test2 = findViewById(R.id.btn_test2);
+        test3 = findViewById(R.id.btn_test3);
+        test4 = findViewById(R.id.btn_test4);
 
     }
 
-    // закоментил до момента создания TopicPickerActivity
     @Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
+            case R.id.iv_exit_app:
+                onBackPressed();
+                break;
             case R.id.btn_test1:
                 intent = new Intent(this, TopicPickerActivity.class);
                 intent.putExtra(TEST_PICKED, "Прямой перевод");

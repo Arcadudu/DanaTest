@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest.test1;
+package ru.arcadudu.danatest.test1_enter_word;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,11 +21,13 @@ import java.util.Map;
 
 import ru.arcadudu.danatest.R;
 import ru.arcadudu.danatest.ResultActivity;
-import ru.arcadudu.danatest.main_selector.MainActivity;
+import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class Test1EnterWord extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "myTag";
+    private static final String TEST_NAME = "testName";
+    private static final String TOPIC_NAME = "topicName";
 
     TextView tv_currentTest, tv_currentTopic;
     ImageView iv_endTest, iv_restartTest;
@@ -33,16 +35,16 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
     EditText et_answerField;
     Button btnNext, btnClear;
 
-    List<String> listRu, listEng;
-    Map<String, String> map;
+    private List<String> listRu, listEng;
+    private Map<String, String> map;
 
     private String quest;
-    int index = 0;
-    List<String> mistakeList = new ArrayList<>();
-    double mistakes = (double) mistakeList.size();
-
+    private int index = 0;
+    private List<String> mistakeList = new ArrayList<>();
+    private double mistakes;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1_enter_word);
@@ -51,6 +53,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         Intent incomingIntent = getIntentExtras(); // заполнили листы
         map = getMap(listRu, listEng); // заполнили карту
         Collections.shuffle(listRu);
+
         tv_currentTopic.setText(incomingIntent.getStringExtra("title")); // установили название темы
         btnNext.setOnClickListener(this);
         btnClear.setOnClickListener(this);
@@ -61,15 +64,16 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
                 restartTest();
             }
         });
-
-
         iv_endTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TopicPickerActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
+
+
         setGame();
 
 
@@ -163,20 +167,21 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
                 if (index < listRu.size()) {
                     setGame();
                 } else {
-                    StringBuilder mistakes = new StringBuilder();
-                    for (int i = 0; i < mistakeList.size(); i++) {
-                        mistakes.append(mistakeList.get(i)).append("\n");
-
-                    }
+                    Log.d(TAG, "onClick: mistakes: " + mistakes + " // mistakesList.length: " + mistakeList.size());
                     Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-                    intent.putExtra("mistakes", mistakes.toString());
+                    intent.putExtra(TEST_NAME, tv_currentTest.getText().toString());
+                    intent.putExtra("mistakes", String.valueOf(mistakes));
+                    double percentage = (mistakes / listRu.size()) * 100;
+                    intent.putExtra("percentage", String.valueOf(percentage));
+                    Log.d(TAG, "onClick: percentageInExtra " + intent.getStringExtra("percentage"));
                     startActivity(intent);
+                    finish();
                 }
                 break;
         }
     }
 
-    public void restartTest(){
+    public void restartTest() {
         index = 0;
         mistakes = 0;
         mistakeList.clear();

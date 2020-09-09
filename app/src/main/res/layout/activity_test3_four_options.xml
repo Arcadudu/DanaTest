@@ -9,6 +9,59 @@
     tools:context=".test1_enter_word.Test1EnterWord">
 
 
+    <Button
+        android:id="@+id/button7"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mountainous"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/button6"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mountanios"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button5"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mautnatnios"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
     <ImageView
         android:id="@+id/iv_end_test"
         android:layout_width="26dp"
@@ -68,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/raleway_light"
-        android:text="Урбанистический"
+        android:text="Гористый"
         android:textColor="@color/dark_title_text_color"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,57 +141,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_quest_word" />
 
-    <EditText
-        android:id="@+id/et_answer_field"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:hint="Введите перевод"
-        android:inputType="textVisiblePassword|textNoSuggestions"
-        android:paddingBottom="10dp"
-        android:textColor="@color/dark_title_text_color"
-        android:textColorHint="@color/dark_hint_text_color"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
-    <Button
-        android:id="@+id/btn_clear"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="150dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/dark_background_main"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:text="Стереть"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_answer_field" />
-
-
-    <Button
-        android:id="@+id/btn_next"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="150dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:background="@color/dark_background_main"
-        android:text="Готово"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_answer_field" />
 
     <TextView
         android:id="@+id/tv_word_counter"
@@ -150,6 +152,23 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_quest_word"
         app:layout_constraintEnd_toEndOf="@+id/view" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="moutnainous"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
