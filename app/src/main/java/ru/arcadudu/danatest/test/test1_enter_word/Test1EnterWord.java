@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest.test1_enter_word;
+package ru.arcadudu.danatest.test.test1_enter_word;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -141,9 +141,6 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
             for (int i = 0; i < ru.size(); i++) {
                 map.put(ru.get(i), eng.get(i));
             }
-            Toast.makeText(this, "Карта создана. Размер карты: " + map.size(), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "ОШИБКА! Списки разной длины", Toast.LENGTH_SHORT).show();
         }
         Log.d(TAG, String.valueOf("getMap: map is null: " + map == null));
         Log.d(TAG, "getMap: map size: " + map.size());

@@ -1,4 +1,4 @@
-package ru.arcadudu.danatest.test3_four_options;
+package ru.arcadudu.danatest.test.test3_four_options;
 
 import androidx.appcompat.app.AppCompatActivity;
 

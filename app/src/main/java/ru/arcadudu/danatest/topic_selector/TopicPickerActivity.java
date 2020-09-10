@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ru.arcadudu.danatest.R;
-import ru.arcadudu.danatest.test1_enter_word.Test1EnterWord;
+import ru.arcadudu.danatest.test.test1_enter_word.Test1EnterWord;
 
 public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 

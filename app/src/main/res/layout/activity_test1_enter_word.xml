@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main_screen_dark"
     android:padding="10dp"
-    tools:context=".test1_enter_word.Test1EnterWord">
+    tools:context=".test.test1_enter_word.Test1EnterWord">
 
 
     <ImageView

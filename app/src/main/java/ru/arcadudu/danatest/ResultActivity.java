@@ -109,7 +109,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             // < 20 %
         } else if (percentage <= 20) {
             tv_activityTitle.setText("Тест пройден");
-            tv_gradeDescription.setText("Хорошо. Ошибок: " + mistakes);
+            tv_gradeDescription.setText("Хорошо. Ошибок: " + (int) mistakes);
             iv_innerResultIcon.setImageResource(R.drawable.icon_result_good_dark);
             iv_nextOrCorrect.setImageResource(R.drawable.icon_troubleshooting_dark);
             tv_actionTitle2.setText(getResources().getString(R.string.result_action_troubleshooting_title));
