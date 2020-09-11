@@ -50,11 +50,9 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_test1_enter_word);
 
         findComponents(); // определили компоненты
-        Intent incomingIntent = getIntentExtras(); // заполнили листы
+        getIntentExtras(getIntent()); // заполнили листы
         map = getMap(listRu, listEng); // заполнили карту
-        Collections.shuffle(listRu);
 
-        tv_currentTopic.setText(incomingIntent.getStringExtra("title")); // установили название темы
         btnNext.setOnClickListener(this);
         btnClear.setOnClickListener(this);
 
@@ -73,13 +71,13 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-
         setGame();
-
-
     }
 
     private void setGame() {
+        if(index == 0){
+            Collections.shuffle(listRu);
+        }
         quest = listRu.get(index);
         tv_questWord.setText(quest);
         et_answerField.setText("");
@@ -106,33 +104,32 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private Intent getIntentExtras() {
-        Intent incomingIntent = getIntent();
+    private void getIntentExtras(Intent incomingIntent) {
         if (incomingIntent.getExtras() != null) {
             String title = incomingIntent.getStringExtra("title");
+            tv_currentTopic.setText(title);
             assert title != null;
             if ("Великобритания".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.gbRu);
-                listEng = fillList(R.array.gbEng);
+                listRu = fillList(R.array.gbRuPlain);
+                listEng = fillList(R.array.gbEngPlain);
             } else if ("Части тела".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.bodyRu);
-                listEng = fillList(R.array.bodyEng);
+                listRu = fillList(R.array.bodyRuPlain);
+                listEng = fillList(R.array.bodyEngPlain);
             } else if ("Лицо и его части".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.faceRu);
-                listEng = fillList(R.array.faceEng);
+                listRu = fillList(R.array.faceRuPlain);
+                listEng = fillList(R.array.faceEngPlain);
             } else if ("Временные константы".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.timeRu);
-                listEng = fillList(R.array.timeEng);
+                listRu = fillList(R.array.timeRuPlain);
+                listEng = fillList(R.array.timeEngPlain);
             } else if ("Дом : базовый уровень".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.houseBasicRu);
-                listEng = fillList(R.array.houseBasicEng);
+                listRu = fillList(R.array.houseBasicRuPlain);
+                listEng = fillList(R.array.houseBasicEngPlain);
             } else {
                 Toast.makeText(this, "Произошла ошибка!", Toast.LENGTH_SHORT).show();
             }
             Log.d(TAG, "getIntentExtras: EXTRAS found withing intent : " + title);
         }
         Log.d(TAG, "getIntentExtras: results: listRu length -" + listRu.size() + "  listEng length -" + listEng.size());
-        return incomingIntent;
     }
 
     public Map<String, String> getMap(List<String> ru, List<String> eng) {

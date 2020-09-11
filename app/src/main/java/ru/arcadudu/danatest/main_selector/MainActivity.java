@@ -16,7 +16,7 @@ import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TEST_PICKED = "topic_picked";
+    private static final String TEST_NAME = "testName";
 
     ConstraintLayout constraintLayout;
     Button test1, test2, test3, test4;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_test1:
                 intent = new Intent(this, TopicPickerActivity.class);
-                intent.putExtra(TEST_PICKED, "Прямой перевод");
+                intent.putExtra(TEST_NAME, "Прямой перевод");
                 startActivity(intent);
                 break;
             case R.id.btn_test2:
@@ -70,8 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                intent.putExtra(TEST_PICKED, "Вставить слово");
                 break;
             case R.id.btn_test3:
+                intent = new Intent(this, TopicPickerActivity.class);
+                intent.putExtra(TEST_NAME, "Четыре варианта");
+                startActivity(intent);
                 Toast.makeText(this, "Раздел \"Четыре варианта\" в разработке...", Toast.LENGTH_SHORT).show();
-//                intent.putExtra(TEST_PICKED, "Четыре варианта");
                 break;
             case R.id.btn_test4:
                 Toast.makeText(this, "Раздел \"Перемешать\" в разработке...", Toast.LENGTH_SHORT).show();

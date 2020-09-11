@@ -9,59 +9,6 @@
     tools:context=".test.test1_enter_word.Test1EnterWord">
 
 
-    <Button
-        android:id="@+id/button7"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:text="mountainous"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-    <Button
-        android:id="@+id/button6"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:text="mountanios"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
-
-    <Button
-        android:id="@+id/button5"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:text="mautnatnios"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
     <ImageView
         android:id="@+id/iv_end_test"
         android:layout_width="26dp"
@@ -154,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_option1"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="80dp"
@@ -169,6 +116,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/btn_option2"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mountainous"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_option3" />
+
+    <Button
+        android:id="@+id/btn_option3"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mountanios"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_option4" />
+
+    <Button
+        android:id="@+id/btn_option4"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_statusbar_color"
+        android:fontFamily="@font/raleway_regular"
+        android:gravity="center"
+        android:text="mautnatnios"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_icons_color"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_option1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

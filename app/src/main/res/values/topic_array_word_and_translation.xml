@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Great Britain-->
+    <string-array name="gbRuPlain">
+        <item>остров</item>
+        <item>острова</item>
+        <item>средний</item>
+        <item>температура</item>
+        <item>выше</item>
+        <item>тысяча</item>
+        <item>Атлантический</item>
+        <item>океан</item>
+        <item>зона (район)</item>
+        <item>километр</item>
+        <item>городской (урбанистичный)</item>
+        <item>туман</item>
+        <item>поверхность</item>
+        <item>гора</item>
+        <item>гористый</item>
+        <item>озеро</item>
+        <item>река</item>
+        <item>климат</item>
+        <item>осень</item>
+    </string-array>
+
+    <string-array name="gbEngPlain">
+        <item>island</item>
+        <item>islands</item>
+        <item>average</item>
+        <item>temperature</item>
+        <item>above</item>
+        <item>thousand</item>
+        <item>Atlantic</item>
+        <item>ocean</item>
+        <item>area</item>
+        <item>kilometer</item>
+        <item>urban</item>
+        <item>fog</item>
+        <item>surface</item>
+        <item>mountain</item>
+        <item>mountainous</item>
+        <item>lake</item>
+        <item>river</item>
+        <item>climate</item>
+        <item>autumn</item>
+    </string-array>
+
+    <!--Face and it's parts-->
+    <string-array name="faceRuPlain">
+        <item>лоб</item>
+        <item>волосы</item>
+        <item>бровь</item>
+        <item>брови</item>
+        <item>глаз</item>
+        <item>глаза</item>
+        <item>ресницы</item>
+        <item>зрачок</item>
+        <item>нос</item>
+        <item>губы</item>
+        <item>зуб</item>
+        <item>зубы</item>
+        <item>язык</item>
+        <item>ухо</item>
+        <item>уши</item>
+        <item>рот</item>
+    </string-array>
+
+    <string-array name="faceEngPlain">
+        <item>forehead</item>
+        <item>hair</item>
+        <item>brow</item>
+        <item>brows</item>
+        <item>eye</item>
+        <item>eyes</item>
+        <item>eyelashes</item>
+        <item>pupil</item>
+        <item>nose</item>
+        <item>lips</item>
+        <item>tooth</item>
+        <item>teeth</item>
+        <item>tongue</item>
+        <item>ear</item>
+        <item>ears</item>
+        <item>mouth</item>
+    </string-array>
+
+<!--Body parts-->
+    <string-array name="bodyRuPlain">
+        <item>голова</item>
+        <item>шея</item>
+        <item>плечо</item>
+        <item>руки</item>
+        <item>локоть</item>
+        <item>предплечье</item>
+        <item>кисть руки</item>
+        <item>ладонь</item>
+        <item>пальцы</item>
+        <item>грудная клетка</item>
+        <item>живот (желудок)</item>
+        <item>бедро</item>
+        <item>нога</item>
+        <item>колено</item>
+        <item>икра</item>
+        <item>ступня</item>
+        <item>ступни</item>
+        <item>пальцы на ногах</item>
+        <item>позвоночник</item>
+        <item>спина</item>
+        <item>попа</item>
+    </string-array>
+
+    <string-array name="bodyEngPlain">
+        <item>head</item>
+        <item>neck</item>
+        <item>shoulder</item>
+        <item>arms</item>
+        <item>elbow</item>
+        <item>forearm</item>
+        <item>hand</item>
+        <item>palm</item>
+        <item>fingers</item>
+        <item>chest</item>
+        <item>stomach</item>
+        <item>hip</item>
+        <item>leg</item>
+        <item>knee</item>
+        <item>calf</item>
+        <item>foot</item>
+        <item>feet</item>
+        <item>toes</item>
+        <item>spine</item>
+        <item>back</item>
+        <item>butt</item>
+    </string-array>
+
+    <string-array name="timeRuPlain">
+        <item>январь</item>
+        <item>февраль</item>
+        <item>март</item>
+        <item>апрель</item>
+        <item>май</item>
+        <item>июнь</item>
+        <item>июль</item>
+        <item>август</item>
+        <item>сентябрь</item>
+        <item>октябрь</item>
+        <item>ноябрь</item>
+        <item>декабрь</item>
+        <item>понедельник</item>
+        <item>вторник</item>
+        <item>среда</item>
+        <item>четверг</item>
+        <item>пятница</item>
+        <item>суббота</item>
+        <item>воскресенье</item>
+        <item>год</item>
+        <item>месяц</item>
+        <item>неделя</item>
+        <item>день</item>
+        <item>час</item>
+        <item>минута</item>
+        <item>секунда</item>
+        <item>полночь</item>
+        <item>полдень</item>
+        <item>вечер</item>
+        <item>утро</item>
+    </string-array>
+
+    <string-array name="timeEngPlain">
+        <item>january</item>
+        <item>february</item>
+        <item>march</item>
+        <item>april</item>
+        <item>may</item>
+        <item>june</item>
+        <item>july</item>
+        <item>august</item>
+        <item>september</item>
+        <item>october</item>
+        <item>november</item>
+        <item>december</item>
+        <item>monday</item>
+        <item>tuesday</item>
+        <item>wednesday</item>
+        <item>thursday</item>
+        <item>friday</item>
+        <item>saturday</item>
+        <item>sunday</item>
+        <item>year</item>
+        <item>month</item>
+        <item>week</item>
+        <item>day</item>
+        <item>hour</item>
+        <item>minute</item>
+        <item>second</item>
+        <item>midnight</item>
+        <item>noon</item>
+        <item>evening</item>
+        <item>morning</item>
+    </string-array>
+
+    <string-array name="houseBasicRuPlain">
+        <item>кухня</item>
+        <item>спальня</item>
+        <item>столовая</item>
+        <item>ванная</item>
+        <item>туалет</item>
+        <item>гостиная</item>
+        <item>зал</item>
+        <item>подвал</item>
+        <item>чердак</item>
+        <item>гараж</item>
+        <item>балкон</item>
+        <item>пол</item>
+        <item>стена</item>
+        <item>потолок</item>
+        <item>дверь</item>
+        <item>ворота</item>
+        <item>окно</item>
+        <item>этаж</item>
+        <item>крыша</item>
+        <item>задний двор</item>
+        <item>сад</item>
+        <item>лифт</item>
+    </string-array>
+
+    <string-array name="houseBasicEngPlain">
+        <item>kitchen</item>
+        <item>bedroom</item>
+        <item>dining room</item>
+        <item>bathroom</item>
+        <item>toilet</item>
+        <item>living room</item>
+        <item>hall</item>
+        <item>basement</item>
+        <item>attic</item>
+        <item>garage</item>
+        <item>balcony</item>
+        <item>floor</item>
+        <item>wall</item>
+        <item>ceiling</item>
+        <item>door</item>
+        <item>gates</item>
+        <item>window</item>
+        <item>floor</item>
+        <item>roof</item>
+        <item>backyard</item>
+        <item>garden</item>
+        <item>elevator</item>
+    </string-array>
+
+
+
+</resources>

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!--Great Britain-->
-    <string-array name="gbRu">
+    <string-array name="gbRuOptions">
         <item>остров</item>
-        <item>острова</item>
         <item>средний</item>
         <item>температура</item>
         <item>выше</item>
@@ -16,7 +14,6 @@
         <item>городской (урбанистичный)</item>
         <item>туман</item>
         <item>поверхность</item>
-        <item>гора</item>
         <item>гористый</item>
         <item>озеро</item>
         <item>река</item>
@@ -24,21 +21,39 @@
         <item>осень</item>
     </string-array>
 
-    <string-array name="gbEng">
+    <string-array name="gbEngOptions">
+        <item>island/iland/irland/islend</item>
+        <item>average/avarege/everage/awerage</item>
+        <item>temperature/tempreture/tampereture/tempareture</item>
+        <item>above/ebove/abave/abowe</item>
+        <item>thousand/thausand/thousend/thousant</item>
+        <item>atlantic/atlantik/atlentic/atllantic</item>
+        <item>ocean/okean/ocian/oushen</item>
+        <item>area/aria/erea/eria</item>
+        <item>kilometer/kilometr/keelometer/kilometre</item>
+        <item>urban/oorban/urben/urbane</item>
+        <item>fog/fok/foge/fogh</item>
+        <item>surface/serface/surfase/serfase</item>
+        <item>mountainous/mountanious/mountainaus/montainous</item>
+        <item>lake/laik/leik/lace</item>
+        <item>river/riwer/reever/rivar</item>
+        <item>climate/climet/climat/clemate</item>
+        <item>autumn/outumn/autoum/outomn</item>
+    </string-array>
+
+    <string-array name="gbEngAnswers">
         <item>island</item>
-        <item>islands</item>
         <item>average</item>
         <item>temperature</item>
         <item>above</item>
         <item>thousand</item>
-        <item>Atlantic</item>
+        <item>atlantic</item>
         <item>ocean</item>
         <item>area</item>
         <item>kilometer</item>
         <item>urban</item>
         <item>fog</item>
         <item>surface</item>
-        <item>mountain</item>
         <item>mountainous</item>
         <item>lake</item>
         <item>river</item>
@@ -46,47 +61,54 @@
         <item>autumn</item>
     </string-array>
 
-    <!--Face and it's parts-->
-    <string-array name="faceRu">
+    <!--Face-->
+    <string-array name="faceRuOptions">
         <item>лоб</item>
         <item>волосы</item>
-        <item>бровь</item>
         <item>брови</item>
-        <item>глаз</item>
         <item>глаза</item>
         <item>ресницы</item>
         <item>зрачок</item>
         <item>нос</item>
         <item>губы</item>
         <item>зуб</item>
-        <item>зубы</item>
         <item>язык</item>
         <item>ухо</item>
-        <item>уши</item>
         <item>рот</item>
     </string-array>
 
-    <string-array name="faceEng">
+    <string-array name="faceEngOptions">
+        <item>forehead/forhead/forehed/fourhead</item>
+        <item>hair/haer/hairs/heir</item>
+        <item>brows/brovs/browns/brow</item>
+        <item>eyes/eiye/eye/eie</item>
+        <item>eyelashes/eyeleshes/ayelashes/eielashes</item>
+        <item>pupil/pupel/puepil/poupel</item>
+        <item>nose/noce/nouse/noise</item>
+        <item>lips/leeps/libs/libes</item>
+        <item>tooth/touth/toof/teeth</item>
+        <item>tongue/tangue/tounge/taunge</item>
+        <item>ear/eal/iar/iars</item>
+        <item>mouth/month/mauth/muoth</item>
+    </string-array>
+
+    <string-array name="faceEngAnswers">
         <item>forehead</item>
         <item>hair</item>
-        <item>brow</item>
         <item>brows</item>
-        <item>eye</item>
         <item>eyes</item>
         <item>eyelashes</item>
         <item>pupil</item>
         <item>nose</item>
         <item>lips</item>
         <item>tooth</item>
-        <item>teeth</item>
         <item>tongue</item>
         <item>ear</item>
-        <item>ears</item>
         <item>mouth</item>
     </string-array>
 
-<!--Body parts-->
-    <string-array name="bodyRu">
+    <!--Body-->
+    <string-array name="bodyRuOptions">
         <item>голова</item>
         <item>шея</item>
         <item>плечо</item>
@@ -103,14 +125,37 @@
         <item>колено</item>
         <item>икра</item>
         <item>ступня</item>
-        <item>ступни</item>
         <item>пальцы на ногах</item>
         <item>позвоночник</item>
         <item>спина</item>
         <item>попа</item>
     </string-array>
 
-    <string-array name="bodyEng">
+
+    <string-array name="bodyEngOptions">
+        <item>head/hand/heat/haid</item>
+        <item>neck/nack/nach/nech</item>
+        <item>shoulder/sholdear/sholder/shoudler</item>
+        <item>arms/armes/air/airs</item>
+        <item>elbow/albow/elbov/elbou</item>
+        <item>forearm/forarm/fourarm/forearms</item>
+        <item>hand/hend/head/hant</item>
+        <item>palm/pulm/bamn/bulm</item>
+        <item>fingers/thingers/finkers/fingeres</item>
+        <item>chest/chast/chess/cheast</item>
+        <item>stomach/stomack/stomech/stomeck</item>
+        <item>hip/heep/hib/heap</item>
+        <item>leg/lag/lek/leck</item>
+        <item>knee/cknee/knie/nee</item>
+        <item>calf/kalf/carf/karf</item>
+        <item>foot/poot/food/root</item>
+        <item>toes/tous/toos/teas</item>
+        <item>spine/spain/spyne/spin</item>
+        <item>back/beck/bak/bek</item>
+        <item>butt/mutt/tubb/mute</item>
+    </string-array>
+
+    <string-array name="bodyEngAnswers">
         <item>head</item>
         <item>neck</item>
         <item>shoulder</item>
@@ -127,14 +172,14 @@
         <item>knee</item>
         <item>calf</item>
         <item>foot</item>
-        <item>feet</item>
         <item>toes</item>
         <item>spine</item>
         <item>back</item>
         <item>butt</item>
     </string-array>
 
-    <string-array name="timeRu">
+    <!--Time-->
+    <string-array name="timeRuOptions">
         <item>январь</item>
         <item>февраль</item>
         <item>март</item>
@@ -167,7 +212,40 @@
         <item>утро</item>
     </string-array>
 
-    <string-array name="timeEng">
+    <string-array name="timeEngOptions">
+        <item>january/jenuary/janvary/januarry</item>
+        <item>february/fabruary/febraury/febrary</item>
+        <item>march/martch/murch/murtch</item>
+        <item>april/epreal/aipril/apreal</item>
+        <item>may/mai/mey/mei</item>
+        <item>june/jyune/jiune/junn</item>
+        <item>july/julay/juli/julai</item>
+        <item>august/avgust/avgoust/augaust</item>
+        <item>september/saptember/septamber/saptamber</item>
+        <item>october/octobre/oktober/oktobar</item>
+        <item>november/novamber/novenber/nowember</item>
+        <item>december/dicember/disember/desember</item>
+        <item>monday/manday/mondey/mandey</item>
+        <item>tuesday/tuseday/thusday/twosday</item>
+        <item>wednesday/wendesday/wensday/wadnesday</item>
+        <item>thursday/thersday/thirsday/thirdsday</item>
+        <item>friday/fryday/frieday/fraiday</item>
+        <item>saturday/seturday/saturnday/suturday</item>
+        <item>sunday/sanday/sunnday/sannday</item>
+        <item>year/iear/yeer/yer</item>
+        <item>month/mouth/munth/mounth</item>
+        <item>week/weak/wick/weeck</item>
+        <item>day/dey/dai/dei</item>
+        <item>hour/haur/hoar/our</item>
+        <item>minute/mynute/meenite/minoute</item>
+        <item>second/cekond/sekond/secund</item>
+        <item>midnight/midnitgh/meednight/midnigth</item>
+        <item>noon/noun/noan/nuun</item>
+        <item>evening/ivening/evning/ivning</item>
+        <item>morning/mourning/mornin/morening</item>
+    </string-array>
+
+    <string-array name="timeEngAnswers">
         <item>january</item>
         <item>february</item>
         <item>march</item>
@@ -200,7 +278,8 @@
         <item>morning</item>
     </string-array>
 
-    <string-array name="houseBasicRu">
+    <!--House-->
+    <string-array name="houseRuOptions">
         <item>кухня</item>
         <item>спальня</item>
         <item>столовая</item>
@@ -217,15 +296,38 @@
         <item>потолок</item>
         <item>дверь</item>
         <item>ворота</item>
-        <item>окно</item>
-        <item>этаж</item>
+        <item>окна</item>
         <item>крыша</item>
         <item>задний двор</item>
         <item>сад</item>
         <item>лифт</item>
     </string-array>
 
-    <string-array name="houseBasicEng">
+    <string-array name="houseEngOptions">
+        <item>kitchen/citchen/keetchin/kitchin</item>
+        <item>bedroom/badroom/bed room/bad room</item>
+        <item>dining room/dinning room/dineroom/dinningroom</item>
+        <item>bathroom/bath room/baphroom/battroom</item>
+        <item>toilet/toalet/tualet/toylet</item>
+        <item>living room/livingroom/live room/leaving room</item>
+        <item>hall/mall/holl/woll</item>
+        <item>basement/basment/baisment/bacement</item>
+        <item>attic/atic/attik/atic</item>
+        <item>garage/garag/garaje/gourage</item>
+        <item>balcony/balcone/balkone/balkony</item>
+        <item>floor/flour/floar/floore</item>
+        <item>wall/woll/waul/woul</item>
+        <item>ceiling/ciling/celeing/seiling</item>
+        <item>door/dore/doar/dour</item>
+        <item>gates/gades/getes/gaids</item>
+        <item>window/vindow/vindou/windouw</item>
+        <item>roof/root/moof/loot</item>
+        <item>backyard/back yard/backjard/back jard</item>
+        <item>garden/gardin/gardeen/guarden</item>
+        <item>elevator/elevetor/elivator/elevatour</item>
+    </string-array>
+
+    <string-array name="houseEngAnswers">
         <item>kitchen</item>
         <item>bedroom</item>
         <item>dining room</item>
@@ -243,13 +345,10 @@
         <item>door</item>
         <item>gates</item>
         <item>window</item>
-        <item>floor</item>
         <item>roof</item>
         <item>backyard</item>
         <item>garden</item>
         <item>elevator</item>
     </string-array>
-
-
 
 </resources>

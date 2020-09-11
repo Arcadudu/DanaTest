@@ -16,6 +16,7 @@ import java.util.List;
 
 import ru.arcadudu.danatest.R;
 import ru.arcadudu.danatest.test.test1_enter_word.Test1EnterWord;
+import ru.arcadudu.danatest.test.test3_four_options.Test3FourOptions;
 
 public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 
@@ -25,6 +26,7 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     TextView activityTitle;
     ImageView btn_back;
     RecyclerView recyclerView;
+
 
     private List<Topic> topicList = new ArrayList<>();
     private RecyclerView.Adapter adapter;
@@ -65,13 +67,14 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         Intent incomingIntent = getIntent();
         if (incomingIntent.getExtras() != null) {
             if (incomingIntent.hasExtra(TEST_NAME)) {
+
                 activityTitle.setText(incomingIntent.getStringExtra(TEST_NAME));
             }
         }
-        if (incomingIntent.hasExtra("topic_picked")) {
-            String title = incomingIntent.getStringExtra("topic_picked");
-            activityTitle.setText(title);
-        }
+//        if (incomingIntent.hasExtra("topic_picked")) {
+//            String title = incomingIntent.getStringExtra("topic_picked");
+//            activityTitle.setText(title);
+//        }
     }
 
     private void setRecyclerAdapter() {
@@ -84,20 +87,20 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
     private void prepareTopicList() {
         // GB
-        List<String> gbRuList = fillList(R.array.gbRu);
-        List<String> gbEngList = fillList(R.array.gbEng);
+        List<String> gbRuList = fillList(R.array.gbRuPlain);
+        List<String> gbEngList = fillList(R.array.gbEngPlain);
         // face
-        List<String> faceRuList = fillList(R.array.faceRu);
-        List<String> faceEngList = fillList(R.array.faceEng);
+        List<String> faceRuList = fillList(R.array.faceRuPlain);
+        List<String> faceEngList = fillList(R.array.faceEngPlain);
         // body
-        List<String> bodyRuList = fillList(R.array.bodyRu);
-        List<String> bodyEngList = fillList(R.array.bodyEng);
+        List<String> bodyRuList = fillList(R.array.bodyRuPlain);
+        List<String> bodyEngList = fillList(R.array.bodyEngPlain);
         // time
-        List<String> timeRuList = fillList(R.array.timeRu);
-        List<String> timeEngList = fillList(R.array.timeEng);
+        List<String> timeRuList = fillList(R.array.timeRuPlain);
+        List<String> timeEngList = fillList(R.array.timeEngPlain);
         // house
-        List<String> houseBasicRuList = fillList(R.array.houseBasicRu);
-        List<String> houseBasicEngList = fillList(R.array.houseBasicEng);
+        List<String> houseBasicRuList = fillList(R.array.houseBasicRuPlain);
+        List<String> houseBasicEngList = fillList(R.array.houseBasicEngPlain);
 
         topicList.add(new Topic("Великобритания", gbRuList, gbEngList));
         topicList.add(new Topic("Лицо и его части", faceRuList, faceEngList));
@@ -113,7 +116,16 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
         Intent intent = new Intent(this, Test1EnterWord.class);
         Topic topic = topicList.get(position);
+
+        String testTitle = getIntent().getStringExtra(TEST_NAME);
+        assert testTitle != null;
+        if (testTitle.equalsIgnoreCase("Прямой перевод")) {
+            intent = new Intent(getApplicationContext(), Test1EnterWord.class);
+        } else if (testTitle.equalsIgnoreCase("Четыре варианта")) {
+            intent = new Intent(getApplicationContext(), Test3FourOptions.class);
+        }
         intent.putExtra("title", topic.getTitle());
+        intent.putExtra(TEST_NAME, testTitle);
         startActivity(intent);
     }
 }
