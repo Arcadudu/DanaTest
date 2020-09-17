@@ -122,52 +122,53 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@color/dark_statusbar_color"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="mountainous"
         android:textAllCaps="false"
         android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_option1" />
 
     <Button
         android:id="@+id/btn_option3"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@color/dark_statusbar_color"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="mountanios"
         android:textAllCaps="false"
         android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option4" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_option2" />
 
     <Button
         android:id="@+id/btn_option4"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@color/dark_statusbar_color"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="mautnatnios"
         android:textAllCaps="false"
         android:textColor="@color/dark_icons_color"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option1" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_option3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

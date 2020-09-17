@@ -21,7 +21,7 @@ import java.util.Map;
 import ru.arcadudu.danatest.R;
 import ru.arcadudu.danatest.ResultActivity;
 
-public class Test3FourOptions extends AppCompatActivity implements View.OnClickListener {
+public class Test3FourOptions extends AppCompatActivity{
 
     private final static String TAG = "myTag";
     private static final String TEST_NAME = "testName";
@@ -48,8 +48,9 @@ public class Test3FourOptions extends AppCompatActivity implements View.OnClickL
 
         findComponents();
         getIntentExtras(getIntent());
-        plainMap = getMap(listRu, listEngKeys);
+        setButtons();
         optionMap = getMap(listRu, listEng);
+        plainMap = getMap(listRu, listEngKeys);
         setGame();
     }
 
@@ -109,6 +110,44 @@ public class Test3FourOptions extends AppCompatActivity implements View.OnClickL
 
     }
 
+    public void setButtons(){
+        btnOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: button1 pushed");
+                checkCorrect((Button) view);
+                checkReadinessForResult();
+            }
+        });
+
+        btnOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: button2 pushed");
+                checkCorrect((Button) view);
+                checkReadinessForResult();
+            }
+        });
+
+        btnOption3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: button3 pushed");
+                checkCorrect((Button) view);
+                checkReadinessForResult();
+            }
+        });
+
+        btnOption4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: button4 pushed");
+                checkCorrect((Button) view);
+                checkReadinessForResult();
+            }
+        });
+    }
+
     public void setGame() {
         if (index == 0) {
             Collections.shuffle(listRu);
@@ -136,13 +175,13 @@ public class Test3FourOptions extends AppCompatActivity implements View.OnClickL
                 map.put(ru.get(i), eng.get(i));
             }
         }
-        Log.d(TAG, String.valueOf("getMap: map is null: " + map == null));
         Log.d(TAG, "getMap: map size: " + map.size());
         return map;
     }
 
     public void checkCorrect(Button btnOption) {
         String answer = btnOption.getText().toString();
+
         String check = plainMap.get(quest);
         Log.d(TAG, "Test3FourOption: checkCorrect: answer: " + answer + "   check: " + check + " current index: " + index);
         Log.d(TAG, "Test3FourOption: checkCorrect: answer == check ?? :" + answer.equalsIgnoreCase(check));
@@ -153,22 +192,30 @@ public class Test3FourOptions extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_option1:
-                checkCorrect(btnOption1);
-                break;
-            case R.id.btn_option2:
-                checkCorrect(btnOption2);
-                break;
-            case R.id.btn_option3:
-                checkCorrect(btnOption3);
-                break;
-            case R.id.btn_option4:
-                checkCorrect(btnOption4);
-                break;
-        }
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+////            case R.id.btn_option1:
+////                Log.d(TAG, "onClick: button1 pushed");
+////                checkCorrect(btnOption1);
+////                break;
+//            case R.id.btn_option2:
+//                Log.d(TAG, "onClick: button1 pushed");
+//                checkCorrect(btnOption2);
+//                break;
+//            case R.id.btn_option3:
+//                Log.d(TAG, "onClick: button1 pushed");
+//                checkCorrect(btnOption3);
+//                break;
+//            case R.id.btn_option4:
+//                Log.d(TAG, "onClick: button1 pushed");
+//                checkCorrect(btnOption4);
+//                break;
+//        }
+//        checkReadinessForResult();
+//    }
+
+    private void checkReadinessForResult() {
         index++;
         if (index < listRu.size()) {
             setGame();
