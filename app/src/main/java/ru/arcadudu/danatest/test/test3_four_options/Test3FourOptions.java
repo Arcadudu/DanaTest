@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -110,7 +112,7 @@ public class Test3FourOptions extends AppCompatActivity{
 
     }
 
-    public void setButtons(){
+    public void setButtons() {
         btnOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,6 +148,19 @@ public class Test3FourOptions extends AppCompatActivity{
                 checkReadinessForResult();
             }
         });
+
+        iv_restartTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                restartTest();
+            }
+        });
+
+    }
+
+    public void setAnimations(){
+        Animation fadeInFast = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
+        tv_questWord.startAnimation(fadeInFast);
     }
 
     public void setGame() {
@@ -165,8 +180,15 @@ public class Test3FourOptions extends AppCompatActivity{
         btnOption4.setText(options.get(3));
 
         tv_wordCounter.setText((index + 1) + "/" + listEng.size());
+        setAnimations();
     }
 
+    public void restartTest() {
+        index = 0;
+        mistakes = 0;
+        mistakeList.clear();
+        setGame();
+    }
 
     public Map<String, String> getMap(List<String> ru, List<String> eng) {
         Map<String, String> map = new HashMap<>();
@@ -189,31 +211,9 @@ public class Test3FourOptions extends AppCompatActivity{
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
+            Toast.makeText(this, "Ошибка! Правильный ответ: "+check, Toast.LENGTH_LONG).show();
         }
     }
-
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-////            case R.id.btn_option1:
-////                Log.d(TAG, "onClick: button1 pushed");
-////                checkCorrect(btnOption1);
-////                break;
-//            case R.id.btn_option2:
-//                Log.d(TAG, "onClick: button1 pushed");
-//                checkCorrect(btnOption2);
-//                break;
-//            case R.id.btn_option3:
-//                Log.d(TAG, "onClick: button1 pushed");
-//                checkCorrect(btnOption3);
-//                break;
-//            case R.id.btn_option4:
-//                Log.d(TAG, "onClick: button1 pushed");
-//                checkCorrect(btnOption4);
-//                break;
-//        }
-//        checkReadinessForResult();
-//    }
 
     private void checkReadinessForResult() {
         index++;
@@ -231,4 +231,6 @@ public class Test3FourOptions extends AppCompatActivity{
             finish();
         }
     }
+
+
 }

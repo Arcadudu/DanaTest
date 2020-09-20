@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -82,6 +84,8 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         tv_questWord.setText(quest);
         et_answerField.setText("");
         tv_wordCount.setText((index + 1) + "/" + listEng.size());
+        setAnimations();
+
     }
 
     private void findComponents() {
@@ -144,6 +148,11 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         return map;
     }
 
+    public void setAnimations(){
+        Animation fadeInFast = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
+        tv_questWord.startAnimation(fadeInFast);
+    }
+
     public List<String> fillList(int stringResourceId) {
         return Arrays.asList(getResources().getStringArray(stringResourceId));
     }
@@ -191,6 +200,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
+
         }
 
     }
