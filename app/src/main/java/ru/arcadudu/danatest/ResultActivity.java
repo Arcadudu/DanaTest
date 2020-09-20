@@ -123,10 +123,13 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         tv_actionTitle3.setText(R.string.result_action_to_topics_title);
         iv_showMistakes.setOnCheckedChangeListener(this);
         iv_toTopicList.setOnClickListener(this);
+
         //no mistakes
         if (percentage == 0.0) {
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Отлично");
+            iv_showMistakes.setEnabled(false);
+            iv_showMistakes.setVisibility(View.INVISIBLE);
             iv_innerResultIcon.setImageResource(R.drawable.icon_result_perfect);
             iv_nextOrCorrect.setImageResource(R.drawable.icon_forward_dark);
             tv_actionTitle2.setText(getResources().getString(R.string.result_action_forward_title));

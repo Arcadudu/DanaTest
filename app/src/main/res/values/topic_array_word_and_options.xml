@@ -22,22 +22,22 @@
     </string-array>
 
     <string-array name="gbEngOptions">
-        <item>island/iland/irland/islend</item>
+        <item>island/iland/ailand/islend</item>
         <item>average/avarege/everage/awerage</item>
         <item>temperature/tempreture/tampereture/tempareture</item>
-        <item>above/ebove/abave/abowe</item>
+        <item>above/ebove/ebave/abowe</item>
         <item>thousand/thausand/thousend/thousant</item>
         <item>atlantic/atlantik/atlentic/atllantic</item>
-        <item>ocean/okean/ocian/oushen</item>
-        <item>area/aria/erea/eria</item>
+        <item>ocean/okean/ocian/oshen</item>
+        <item>area/aria/erea/arya</item>
         <item>kilometer/kilometr/keelometer/kilometre</item>
         <item>urban/oorban/urben/urbane</item>
         <item>fog/fok/foge/fogh</item>
         <item>surface/serface/surfase/serfase</item>
         <item>mountainous/mountanious/mountainaus/montainous</item>
         <item>lake/laik/leik/lace</item>
-        <item>river/riwer/reever/rivar</item>
-        <item>climate/climet/climat/clemate</item>
+        <item>river/riwer/rever/rivar</item>
+        <item>climate/climete/climet/clemat</item>
         <item>autumn/outumn/autoum/outomn</item>
     </string-array>
 
@@ -296,7 +296,7 @@
         <item>потолок</item>
         <item>дверь</item>
         <item>ворота</item>
-        <item>окна</item>
+        <item>окно</item>
         <item>крыша</item>
         <item>задний двор</item>
         <item>сад</item>
