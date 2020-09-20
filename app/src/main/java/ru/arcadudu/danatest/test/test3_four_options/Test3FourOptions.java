@@ -37,6 +37,7 @@ public class Test3FourOptions extends AppCompatActivity{
     private List<String> listRu, listEng, listEngKeys;
     private Map<String, String> plainMap, optionMap;
 
+    private StringBuilder sbMistakes = new StringBuilder();
     private String quest;
     private int index = 0;
     private List<String> mistakeList = new ArrayList<>();
@@ -203,7 +204,6 @@ public class Test3FourOptions extends AppCompatActivity{
 
     public void checkCorrect(Button btnOption) {
         String answer = btnOption.getText().toString();
-
         String check = plainMap.get(quest);
         Log.d(TAG, "Test3FourOption: checkCorrect: answer: " + answer + "   check: " + check + " current index: " + index);
         Log.d(TAG, "Test3FourOption: checkCorrect: answer == check ?? :" + answer.equalsIgnoreCase(check));
@@ -211,7 +211,8 @@ public class Test3FourOptions extends AppCompatActivity{
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
-            Toast.makeText(this, "Ошибка! Правильный ответ: "+check, Toast.LENGTH_LONG).show();
+            sbMistakes.append("✗ ").append(answer).append("  ||  ").append("✓ ").append(check).append("*");
+//            Toast.makeText(this, "Ошибка! Правильный ответ: "+check, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -227,6 +228,7 @@ public class Test3FourOptions extends AppCompatActivity{
             double percentage = (mistakes / listRu.size()) * 100;
             intent.putExtra("percentage", String.valueOf(percentage));
             Log.d(TAG, "onClick: percentageInExtra " + intent.getStringExtra("percentage"));
+            intent.putExtra("sbMistakes", sbMistakes.toString());
             startActivity(intent);
             finish();
         }

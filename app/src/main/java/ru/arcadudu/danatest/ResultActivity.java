@@ -6,14 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
 
-public class ResultActivity extends AppCompatActivity implements View.OnClickListener {
+public class ResultActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = "myTag";
     private static final String TEST_NAME = "testName";
@@ -21,15 +23,20 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private String titleExtra, topicExtra;
+    private String sbMistakes;
     private double mistakes;
     private double percentage;
 
     TextView tv_activityTitle, tv_gradeDescription;
     TextView tv_actionTitle1, tv_actionTitle2, tv_actionTitle3;
-    ImageView iv_innerResultIcon;
+    TextView tv_sbMistakes;
+    ImageView iv_innerResultIcon, iv_outerCircle;
+    ToggleButton iv_showMistakes;
     ImageView iv_restartTopic, iv_nextOrCorrect, iv_toTopicList;
 
-    ImageView iv_outerCircle;
+    Animation rotateCircleAnimation, rotateToggleAnimation, fadeInAnimation, fadeInFastAnimation, fadeOutFastAnimation;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +45,32 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
         findComponents();
         getExtras();
+        setAnimation();
         setDecoration();
 
-        iv_toTopicList.setOnClickListener(this);
 
-        Animation rotateCircle = AnimationUtils.loadAnimation(this, R.anim.rotate);
-        iv_outerCircle.startAnimation(rotateCircle);
-        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein);
-        iv_innerResultIcon.startAnimation(fadeIn);
+
+
     }
 
+    private void setAnimation(){
+        rotateCircleAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        fadeInFastAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
+        fadeOutFastAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout_fast);
+        rotateToggleAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_toggle);
+
+
+
+    }
 
     private void findComponents() {
         tv_activityTitle = findViewById(R.id.tv_test_passed_title);
         tv_gradeDescription = findViewById(R.id.tv_result_grade_description);
+        tv_sbMistakes = findViewById(R.id.tv_sb_mistakes);
         iv_outerCircle = findViewById(R.id.iv_result_img_circle);
         iv_innerResultIcon = findViewById(R.id.iv_result_inner_img);
+        iv_showMistakes = findViewById(R.id.iv_show_mistakes);
         iv_restartTopic = findViewById(R.id.iv_restart_topic);
         iv_nextOrCorrect = findViewById(R.id.iv_next_topic_or_correct_mistakes);
         iv_toTopicList = findViewById(R.id.iv_to_topic_list);
@@ -91,6 +108,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 Log.d(TAG, "getDoubleExtras: percentageString: " + percentageString + "    percentage:" + percentage);
             }
 
+            // список ошибок для отображения
+            if(intent.hasExtra("sbMistakes")){
+                sbMistakes = intent.getStringExtra("sbMistakes");
+            }
+
         }
     }
 
@@ -99,6 +121,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         iv_toTopicList.setImageResource(R.drawable.icon_to_topics_dark1);
         tv_actionTitle1.setText(R.string.result_action_again_title);
         tv_actionTitle3.setText(R.string.result_action_to_topics_title);
+        iv_showMistakes.setOnCheckedChangeListener(this);
+        iv_toTopicList.setOnClickListener(this);
         //no mistakes
         if (percentage == 0.0) {
             tv_activityTitle.setText("Тест пройден");
@@ -121,6 +145,10 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             iv_nextOrCorrect.setImageResource(R.drawable.icon_troubleshooting_dark);
             tv_actionTitle2.setText(getResources().getString(R.string.result_action_troubleshooting_title));
         }
+
+        //animations
+        iv_outerCircle.startAnimation(rotateCircleAnimation);
+        iv_innerResultIcon.startAnimation(fadeInAnimation);
     }
 
     @Override
@@ -135,6 +163,26 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
                 finish();
                 break;
+
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        if(isChecked){
+
+            tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
+            tv_sbMistakes.startAnimation(fadeInFastAnimation);
+            iv_showMistakes.startAnimation(fadeInFastAnimation);
+            iv_showMistakes.setBackgroundResource(R.drawable.icon_eye_passive_dark);
+
+            // добавить анимацию
+        }else{
+            tv_sbMistakes.setText("");
+//            iv_showMistakes.startAnimation(fadeInFastAnimation);
+            iv_showMistakes.startAnimation(rotateToggleAnimation);
+            iv_showMistakes.setBackgroundResource(R.drawable.icon_eye_active_dark);
+
         }
     }
 }

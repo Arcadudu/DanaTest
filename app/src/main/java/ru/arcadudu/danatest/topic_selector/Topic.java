@@ -17,6 +17,11 @@ public class Topic {
         this.translations = translations;
         this.size = words.size();
     }
+    public Topic(String title, List<String> words){
+        this.title = title;
+        this.words = words;
+        this.size = words.size();
+    }
 
     public Map<String, String> getPack(List<String> words, List<String> translations) {
         if (words.size() == translations.size()) {

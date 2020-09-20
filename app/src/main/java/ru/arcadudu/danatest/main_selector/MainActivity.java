@@ -55,27 +55,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent;
+        Intent intent = new Intent(this, TopicPickerActivity.class);
         switch (view.getId()) {
             case R.id.iv_exit_app:
                 onBackPressed();
                 break;
             case R.id.btn_test1:
-                intent = new Intent(this, TopicPickerActivity.class);
                 intent.putExtra(TEST_NAME, "Прямой перевод");
                 startActivity(intent);
                 break;
             case R.id.btn_test2:
                 Toast.makeText(this, "Раздел \"Вставить слово\" в разработке...", Toast.LENGTH_SHORT).show();
-//                intent.putExtra(TEST_PICKED, "Вставить слово");
+                intent.putExtra(TEST_NAME, "Вставить слово");
                 break;
             case R.id.btn_test3:
-                intent = new Intent(this, TopicPickerActivity.class);
                 intent.putExtra(TEST_NAME, "Четыре варианта");
                 startActivity(intent);
-                Toast.makeText(this, "Раздел \"Четыре варианта\" в разработке...", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_test4:
+                intent.putExtra(TEST_NAME, "Перемешать");
                 Toast.makeText(this, "Раздел \"Перемешать\" в разработке...", Toast.LENGTH_SHORT).show();
 //                intent.putExtra(TEST_PICKED, "Перемешать");
                 break;

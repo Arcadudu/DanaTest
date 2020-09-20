@@ -40,6 +40,8 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
     private List<String> listRu, listEng;
     private Map<String, String> map;
 
+    private StringBuilder sbMistakes = new StringBuilder("");
+    private String topicName;
     private String quest;
     private int index = 0;
     private List<String> mistakeList = new ArrayList<>();
@@ -52,12 +54,70 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_test1_enter_word);
 
         findComponents(); // определили компоненты
-        getIntentExtras(getIntent()); // заполнили листы
-        map = getMap(listRu, listEng); // заполнили карту
+        getIntentExtras(getIntent()); // получили экстрас
+        prepareContainers(); // заполнили листы и карту
+        setOnClicks(); // установили слушатели
+        setGame();
+    }
 
+    private void findComponents() {
+        tv_currentTest = findViewById(R.id.tv_current_test_name); // текущий тест
+        tv_currentTopic = findViewById(R.id.tv_current_topic_name); // текущий топик
+        iv_endTest = findViewById(R.id.iv_end_test); // иконка выйти из теста
+        iv_restartTest = findViewById(R.id.iv_restart_test); // иконка начать тест заново
+        tv_questWord = findViewById(R.id.tv_quest_word); // поле загаданного слова
+        tv_wordCount = findViewById(R.id.tv_word_counter); // счетчик слов
+        et_answerField = findViewById(R.id.et_answer_field); // поле ввода ответа
+        btnNext = findViewById(R.id.btn_next); // кнопка готово
+        btnClear = findViewById(R.id.btn_clear); // кнопка стереть
+        Log.d(TAG, "1.findComponents: all components found!");
+    }
+
+    private void getIntentExtras(Intent incomingIntent) {
+        if (incomingIntent.getExtras() != null) {
+            topicName = incomingIntent.getStringExtra("title");
+            tv_currentTopic.setText(topicName);
+            assert topicName != null;
+            Log.d(TAG, "getIntentExtras: EXTRAS found withing intent : " + topicName);
+        }
+    }
+
+    public void prepareContainers() {
+        if ("Великобритания".equalsIgnoreCase(topicName)) {
+            listRu = fillList(R.array.gbRuPlain);
+            listEng = fillList(R.array.gbEngPlain);
+        } else if ("Части тела".equalsIgnoreCase(topicName)) {
+            listRu = fillList(R.array.bodyRuPlain);
+            listEng = fillList(R.array.bodyEngPlain);
+        } else if ("Лицо и его части".equalsIgnoreCase(topicName)) {
+            listRu = fillList(R.array.faceRuPlain);
+            listEng = fillList(R.array.faceEngPlain);
+        } else if ("Временные константы".equalsIgnoreCase(topicName)) {
+            listRu = fillList(R.array.timeRuPlain);
+            listEng = fillList(R.array.timeEngPlain);
+        } else if ("Дом : базовый уровень".equalsIgnoreCase(topicName)) {
+            listRu = fillList(R.array.houseBasicRuPlain);
+            listEng = fillList(R.array.houseBasicEngPlain);
+        } else {
+            Toast.makeText(this, "Произошла ошибка!", Toast.LENGTH_SHORT).show();
+        }
+        map = getMap(listRu, listEng);
+    }
+
+    private void setGame() {
+        if (index == 0) {
+            Collections.shuffle(listRu);
+        }
+        quest = listRu.get(index);
+        tv_questWord.setText(quest);
+        et_answerField.setText("");
+        tv_wordCount.setText((index + 1) + "/" + listEng.size());
+        setAnimations();
+    }
+
+    private void setOnClicks() {
         btnNext.setOnClickListener(this);
         btnClear.setOnClickListener(this);
-
         iv_restartTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,68 +132,6 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
                 finish();
             }
         });
-
-        setGame();
-    }
-
-    private void setGame() {
-        if(index == 0){
-            Collections.shuffle(listRu);
-        }
-        quest = listRu.get(index);
-        tv_questWord.setText(quest);
-        et_answerField.setText("");
-        tv_wordCount.setText((index + 1) + "/" + listEng.size());
-        setAnimations();
-
-    }
-
-    private void findComponents() {
-        tv_currentTest = findViewById(R.id.tv_current_test_name);
-        tv_currentTopic = findViewById(R.id.tv_current_topic_name);
-
-        iv_endTest = findViewById(R.id.iv_end_test); // иконка выйти из теста
-        iv_restartTest = findViewById(R.id.iv_restart_test); // иконка начать тест заново
-
-        tv_questWord = findViewById(R.id.tv_quest_word); // поле загаданного слова
-        tv_wordCount = findViewById(R.id.tv_word_counter); // счетчик слов
-
-        et_answerField = findViewById(R.id.et_answer_field); // поле ввода ответа
-
-        btnNext = findViewById(R.id.btn_next); // кнопка готово
-
-        btnClear = findViewById(R.id.btn_clear); // кнопка стереть
-
-        Log.d(TAG, "1.findComponents: all components found!");
-
-    }
-
-    private void getIntentExtras(Intent incomingIntent) {
-        if (incomingIntent.getExtras() != null) {
-            String title = incomingIntent.getStringExtra("title");
-            tv_currentTopic.setText(title);
-            assert title != null;
-            if ("Великобритания".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.gbRuPlain);
-                listEng = fillList(R.array.gbEngPlain);
-            } else if ("Части тела".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.bodyRuPlain);
-                listEng = fillList(R.array.bodyEngPlain);
-            } else if ("Лицо и его части".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.faceRuPlain);
-                listEng = fillList(R.array.faceEngPlain);
-            } else if ("Временные константы".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.timeRuPlain);
-                listEng = fillList(R.array.timeEngPlain);
-            } else if ("Дом : базовый уровень".equalsIgnoreCase(title)) {
-                listRu = fillList(R.array.houseBasicRuPlain);
-                listEng = fillList(R.array.houseBasicEngPlain);
-            } else {
-                Toast.makeText(this, "Произошла ошибка!", Toast.LENGTH_SHORT).show();
-            }
-            Log.d(TAG, "getIntentExtras: EXTRAS found withing intent : " + title);
-        }
-        Log.d(TAG, "getIntentExtras: results: listRu length -" + listRu.size() + "  listEng length -" + listEng.size());
     }
 
     public Map<String, String> getMap(List<String> ru, List<String> eng) {
@@ -148,7 +146,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         return map;
     }
 
-    public void setAnimations(){
+    public void setAnimations() {
         Animation fadeInFast = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
         tv_questWord.startAnimation(fadeInFast);
     }
@@ -166,21 +164,27 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btn_next:
                 checkCorrect();
-                index++;
-                if (index < listRu.size()) {
-                    setGame();
-                } else {
-                    Log.d(TAG, "onClick: mistakes: " + mistakes + " // mistakesList.length: " + mistakeList.size());
-                    Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-                    intent.putExtra(TEST_NAME, tv_currentTest.getText().toString());
-                    intent.putExtra("mistakes", String.valueOf(mistakes));
-                    double percentage = (mistakes / listRu.size()) * 100;
-                    intent.putExtra("percentage", String.valueOf(percentage));
-                    Log.d(TAG, "onClick: percentageInExtra " + intent.getStringExtra("percentage"));
-                    startActivity(intent);
-                    finish();
-                }
+                checkReadinessForResult();
                 break;
+        }
+    }
+
+    private void checkReadinessForResult() {
+        index++;
+        if (index < listRu.size()) {
+            setGame();
+        } else {
+            Log.d(TAG, "onClick: mistakes: " + mistakes + " // mistakesList.length: " + mistakeList.size());
+            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+            intent.putExtra(TEST_NAME, tv_currentTest.getText().toString());
+            intent.putExtra("mistakes", String.valueOf(mistakes));
+            double percentage = (mistakes / listRu.size()) * 100;
+            intent.putExtra("percentage", String.valueOf(percentage));
+            Log.d(TAG, "onClick: percentageInExtra " + intent.getStringExtra("percentage"));
+            intent.putExtra("sbMistakes", sbMistakes.toString());
+//            Log.d(TAG, "checkReadinessForResult: sbMistakes :"+sbMistakes);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -200,7 +204,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
-
+            sbMistakes.append("✗ ").append(answer).append(" ✓ ").append(check).append("*");
         }
 
     }

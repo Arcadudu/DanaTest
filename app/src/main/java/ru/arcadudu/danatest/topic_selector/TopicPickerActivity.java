@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +23,7 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
     private static final String TEST_NAME = "testName";
     private static final String TAG = "tag";
+    private String testName;
 
     TextView activityTitle;
     ImageView btn_back;
@@ -46,8 +48,6 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         getPossibleExtras();
         prepareTopicList();
         setRecyclerAdapter();
-
-
     }
 
     public List<Topic> getTopicList() {
@@ -67,14 +67,10 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         Intent incomingIntent = getIntent();
         if (incomingIntent.getExtras() != null) {
             if (incomingIntent.hasExtra(TEST_NAME)) {
-
+                testName = incomingIntent.getStringExtra(TEST_NAME);
                 activityTitle.setText(incomingIntent.getStringExtra(TEST_NAME));
             }
         }
-//        if (incomingIntent.hasExtra("topic_picked")) {
-//            String title = incomingIntent.getStringExtra("topic_picked");
-//            activityTitle.setText(title);
-//        }
     }
 
     private void setRecyclerAdapter() {
@@ -86,27 +82,37 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     }
 
     private void prepareTopicList() {
-        // GB
-        List<String> gbRuList = fillList(R.array.gbRuPlain);
-        List<String> gbEngList = fillList(R.array.gbEngPlain);
-        // face
-        List<String> faceRuList = fillList(R.array.faceRuPlain);
-        List<String> faceEngList = fillList(R.array.faceEngPlain);
-        // body
-        List<String> bodyRuList = fillList(R.array.bodyRuPlain);
-        List<String> bodyEngList = fillList(R.array.bodyEngPlain);
-        // time
-        List<String> timeRuList = fillList(R.array.timeRuPlain);
-        List<String> timeEngList = fillList(R.array.timeEngPlain);
-        // house
-        List<String> houseBasicRuList = fillList(R.array.houseBasicRuPlain);
-        List<String> houseBasicEngList = fillList(R.array.houseBasicEngPlain);
+        List<String> gbRuList = new ArrayList<>();
+        List<String> faceRuList = new ArrayList<>();
+        List<String> bodyRuList = new ArrayList<>();
+        List<String> timeRuList = new ArrayList<>();
+        List<String> houseBasicRuList = new ArrayList<>();
 
-        topicList.add(new Topic("Великобритания", gbRuList, gbEngList));
-        topicList.add(new Topic("Лицо и его части", faceRuList, faceEngList));
-        topicList.add(new Topic("Части тела", bodyRuList, bodyEngList));
-        topicList.add(new Topic("Временные константы", timeRuList, timeEngList));
-        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, houseBasicEngList));
+        switch (testName) {
+            case "Прямой перевод":
+                // GB
+                gbRuList = fillList(R.array.gbRuPlain);
+                faceRuList = fillList(R.array.faceRuPlain);
+                bodyRuList = fillList(R.array.bodyRuPlain);
+                timeRuList = fillList(R.array.timeRuPlain);
+                houseBasicRuList = fillList(R.array.houseBasicRuPlain);
+                break;
+
+            case "Четыре варианта":
+                gbRuList = fillList(R.array.gbRuOptions);
+                faceRuList = fillList(R.array.faceRuOptions);
+                bodyRuList = fillList(R.array.bodyRuOptions);
+                timeRuList = fillList(R.array.timeRuOptions);
+                houseBasicRuList = fillList(R.array.houseRuOptions);
+                break;
+        }
+
+
+        topicList.add(new Topic("Великобритания", gbRuList));
+        topicList.add(new Topic("Лицо и его части", faceRuList));
+        topicList.add(new Topic("Части тела", bodyRuList));
+        topicList.add(new Topic("Временные константы", timeRuList));
+        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList));
     }
 
     @Override
