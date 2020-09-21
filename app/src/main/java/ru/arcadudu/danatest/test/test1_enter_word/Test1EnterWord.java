@@ -48,7 +48,6 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
     private double mistakes;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1_enter_word);
@@ -78,7 +77,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
             topicName = incomingIntent.getStringExtra("title");
             tv_currentTopic.setText(topicName);
             assert topicName != null;
-            Log.d(TAG, "getIntentExtras: EXTRAS found withing intent : " + topicName);
+            Log.d(TAG, "Test1 getIntentExtras: EXTRAS found withing intent : " + topicName );
         }
     }
 
@@ -197,6 +196,7 @@ public class Test1EnterWord extends AppCompatActivity implements View.OnClickLis
 
     private void checkCorrect() {
         String answer = et_answerField.getText().toString();
+        if(answer.isEmpty()) answer = "нет ответа";
         String check = map.get(quest);
         Log.d(TAG, "checkCorrect: answer: " + answer + "   check: " + check + " current index: " + index);
         Log.d(TAG, "checkCorrect: answer == check ?? :" + answer.equalsIgnoreCase(check));

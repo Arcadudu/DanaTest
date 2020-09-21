@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_test4:
                 intent.putExtra(TEST_NAME, "Перемешать");
-                Toast.makeText(this, "Раздел \"Перемешать\" в разработке...", Toast.LENGTH_SHORT).show();
-//                intent.putExtra(TEST_PICKED, "Перемешать");
+                startActivity(intent);
                 break;
         }
 

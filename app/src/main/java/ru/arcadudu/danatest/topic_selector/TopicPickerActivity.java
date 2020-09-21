@@ -18,6 +18,7 @@ import java.util.List;
 import ru.arcadudu.danatest.R;
 import ru.arcadudu.danatest.test.test1_enter_word.Test1EnterWord;
 import ru.arcadudu.danatest.test.test3_four_options.Test3FourOptions;
+import ru.arcadudu.danatest.test.test4_shuffle.Test4Shuffle;
 
 public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 
@@ -90,6 +91,8 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
         switch (testName) {
             case "Прямой перевод":
+
+            case "Перемешать":
                 // GB
                 gbRuList = fillList(R.array.gbRuPlain);
                 faceRuList = fillList(R.array.faceRuPlain);
@@ -129,6 +132,8 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
             intent = new Intent(getApplicationContext(), Test1EnterWord.class);
         } else if (testTitle.equalsIgnoreCase("Четыре варианта")) {
             intent = new Intent(getApplicationContext(), Test3FourOptions.class);
+        } else if(testTitle.equalsIgnoreCase("Перемешать")){
+            intent = new Intent(getApplicationContext(), Test4Shuffle.class);
         }
         intent.putExtra("title", topic.getTitle());
         intent.putExtra(TEST_NAME, testTitle);
