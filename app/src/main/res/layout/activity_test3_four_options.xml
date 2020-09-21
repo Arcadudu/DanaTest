@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_main_screen_dark"
+    android:background="@drawable/four_options_test_background_wallpaper"
     android:padding="10dp"
     tools:context=".test.test1_enter_word.Test1EnterWord">
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_main_screen_dark"
+    android:background="@drawable/enter_word_test_background_wallpaper"
     android:padding="10dp"
     tools:context=".test.test1_enter_word.Test1EnterWord">
 
@@ -114,7 +114,6 @@
         android:layout_height="75dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
-        android:background="@color/dark_background_main"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
         android:text="Стереть"
@@ -133,7 +132,6 @@
         android:layout_marginEnd="40dp"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center"
-        android:background="@color/dark_background_main"
         android:text="Готово"
         android:textColor="@color/dark_icons_color"
         android:textSize="18sp"

@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void findComponents() {
         constraintLayout = findViewById(R.id.constraint_layout);
-        constraintLayout.setBackground(getResources().getDrawable
-                (R.drawable.background_main_screen_dark, getTheme()));
+//        constraintLayout.setBackground(getResources().getDrawable
+//                (R.drawable.background_main_screen_dark, getTheme()));
 
         exitApp = findViewById(R.id.iv_exit_app);
         test1 = findViewById(R.id.btn_test1);
