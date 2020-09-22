@@ -67,10 +67,14 @@
     </string-array>
 
     <string-array name="faceEngPlain">
-        <item>forehead</item>
-        <item>hair</item>
-        <item>brow</item>
-        <item>brows</item>
+<!--        <item>forehead</item>-->
+<!--        <item>hair</item>-->
+<!--        <item>brow</item>-->
+<!--        <item>brows</item>-->
+        <item>ab</item>
+        <item>cd</item>
+        <item>ef</item>
+        <item>gh</item>
         <item>eye</item>
         <item>eyes</item>
         <item>eyelashes</item>

@@ -176,11 +176,31 @@ public class Test4Shuffle extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < word.length(); i++) {
             letters.add(word.charAt(i));
         }
+        String res = shuffle(letters);
+        Log.e("AA", "res = "+res);
+//        if(res.equals(word)){
+//            res = shuffle(letters, sbResult);
+//        }
+        while(res.equalsIgnoreCase(word)){
+            res = shuffle(letters);
+            Log.e("AA", "res = "+res);
+
+        }
+//        Collections.shuffle(letters);
+//        for (Character ch : letters) {
+//            sbResult.append(ch);
+//        }
+//        return sbResult.toString();
+        return res;
+    }
+
+    private String shuffle(List<Character> letters){
         Collections.shuffle(letters);
+        StringBuilder sbResult = new StringBuilder();
         for (Character ch : letters) {
             sbResult.append(ch);
         }
-        return sbResult.toString();
+         return sbResult.toString();
     }
 
     private void checkReadinessForResult() {
