@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/result_background_wallpaper"
+    android:background="@drawable/background_result_screen_dark__1"
     android:padding="10dp"
     tools:context=".ResultActivity">
 
@@ -13,12 +13,12 @@
         android:id="@+id/iv_next_topic_or_correct_mistakes"
         android:layout_width="80dp"
         android:layout_height="70dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginBottom="30dp"
         android:padding="10dp"
         android:src="@drawable/icon_troubleshooting_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result_grade_description" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/iv_to_topic_list"
@@ -35,7 +35,7 @@
         android:id="@+id/tv_test_passed_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/raleway_light"
         android:gravity="center"
         android:text="Пройден ли тест"
@@ -44,17 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_borderline4"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/dark_hint_text_color"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/iv_next_topic_or_correct_mistakes"
-        app:layout_constraintEnd_toEndOf="@+id/iv_to_topic_list"
-        app:layout_constraintStart_toStartOf="@+id/iv_restart_topic" />
 
     <ImageView
         android:id="@+id/iv_result_img_circle"
@@ -145,14 +134,14 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="7dp"
         android:paddingStart="5dp"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/tv_borderline4"
-        app:layout_constraintEnd_toEndOf="@+id/tv_borderline4"
+        app:layout_constraintBottom_toTopOf="@+id/iv_next_topic_or_correct_mistakes"
+        app:layout_constraintEnd_toEndOf="@+id/iv_to_topic_list"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_borderline4"
+        app:layout_constraintStart_toStartOf="@+id/iv_restart_topic"
         app:layout_constraintTop_toBottomOf="@+id/tv_result_grade_description">
 
         <LinearLayout
