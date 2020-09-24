@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".test.test4_shuffle.Test4Shuffle"></activity>
+        <activity android:name=".test.Test4Shuffle"></activity>
         <activity
             android:name=".SplashScreen"
             android:label="Home"
@@ -19,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.test3_four_options.Test3FourOptions" />
+        <activity android:name=".test.Test3FourOptions" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".test.test1_enter_word.Test1EnterWord" />
+        <activity android:name=".test.Test1EnterWord" />
         <activity android:name=".topic_selector.TopicPickerActivity" />
         <activity android:name=".main_selector.MainActivity">
 

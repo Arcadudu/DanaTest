@@ -10,15 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import ru.arcadudu.danatest.R;
-import ru.arcadudu.danatest.test.test1_enter_word.Test1EnterWord;
-import ru.arcadudu.danatest.test.test3_four_options.Test3FourOptions;
-import ru.arcadudu.danatest.test.test4_shuffle.Test4Shuffle;
+import ru.arcadudu.danatest.main_selector.MainActivity;
+import ru.arcadudu.danatest.test.Test1EnterWord;
+import ru.arcadudu.danatest.test.Test3FourOptions;
+import ru.arcadudu.danatest.test.Test4Shuffle;
 
 public class TopicPickerActivity extends AppCompatActivity implements TopicAdapter.OnTopicListener {
 
@@ -43,7 +43,9 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+               Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+               startActivity(intent);
+               finish();
             }
         });
         getPossibleExtras();

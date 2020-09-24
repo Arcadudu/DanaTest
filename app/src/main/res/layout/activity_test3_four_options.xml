@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/four_options_test_background_wallpaper"
+    android:background="@drawable/enter_word_test_background_wallpaper__1"
     android:padding="10dp"
-    tools:context=".test.test1_enter_word.Test1EnterWord">
+    tools:context=".test.Test1EnterWord">
 
 
     <ImageView

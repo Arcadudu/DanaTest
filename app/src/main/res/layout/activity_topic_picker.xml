@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/topic_picker_background_wallpaper"
+    android:background="@drawable/topic_picker_background_wallpaper__1"
     android:padding="10dp"
     tools:context=".topic_selector.TopicPickerActivity">
 
@@ -74,7 +74,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_title" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

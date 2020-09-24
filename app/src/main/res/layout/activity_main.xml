@@ -5,7 +5,7 @@
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/test_picker_background_wallpaper"
+    android:background="@drawable/test_picker_background_wallpaper__1"
     android:padding="10dp"
     tools:context=".main_selector.MainActivity"
     tools:layout_editor_absoluteY="25dp">
