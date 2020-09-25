@@ -160,17 +160,34 @@
         </LinearLayout>
     </ScrollView>
 
-    <ToggleButton
-        android:id="@+id/iv_show_mistakes"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:textOff=""
-        android:textOn=""
-        android:background="@drawable/icon_eye_active_dark"
+    <ImageView
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:id="@+id/iv_show_mistakes2"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_result_grade_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_grade_description"
         app:layout_constraintStart_toEndOf="@+id/tv_result_grade_description"
-        app:srcCompat="@drawable/icon_arrow_down_dark" />
+        android:src="@drawable/icon_eye_active_dark"/>
 
+<!--    <ToggleButton-->
+<!--        android:id="@+id/iv_show_mistakes"-->
+<!--        style="?android:attr/borderlessButtonStyle"-->
+<!--        android:layout_width="46dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:padding="10dp"-->
+<!--        android:textOff=""-->
+<!--        android:textOn=""-->
+<!--        android:background="@drawable/icon_eye_active_dark"-->
+<!--        app:srcCompat="@drawable/icon_eye_active_dark"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tv_result_grade_description"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tv_result_grade_description"-->
+<!--         />-->
 
+<!--<ru.arcadudu.danatest.MyToggle-->
+<!--    android:id="@+id/iv_show_mistakes"-->
+<!--    android:layout_width="46dp"-->
+<!--    android:layout_height="46dp"-->
+<!--    app:layout_constraintBottom_toBottomOf="@+id/tv_result_grade_description"-->
+<!--    app:layout_constraintStart_toEndOf="@+id/tv_result_grade_description"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,8 @@
     <style name="AppTheme.Launcher">
     <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+
+    <style name="Toggle">
+        <item name="android:buttonStyleToggle">@style/MyToggle</item>
+    </style>
 </resources>

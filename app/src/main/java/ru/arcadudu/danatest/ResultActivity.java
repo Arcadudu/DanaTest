@@ -26,12 +26,15 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     private String sbMistakes;
     private double mistakes;
     private double percentage;
+    private boolean isChecked = false;
 
     TextView tv_activityTitle, tv_gradeDescription;
     TextView tv_actionTitle1, tv_actionTitle2, tv_actionTitle3;
     TextView tv_sbMistakes;
     ImageView iv_innerResultIcon, iv_outerCircle;
     ToggleButton iv_showMistakes;
+    ImageView iv_show_mistakes2;
+//    MyToggle iv_showMistakes;
     ImageView iv_restartTopic, iv_nextOrCorrect, iv_toTopicList;
 
     Animation rotateCircleAnimation, rotateToggleAnimation, fadeInAnimation, fadeInFastAnimation, fadeOutFastAnimation;
@@ -59,9 +62,6 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         fadeInFastAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
         fadeOutFastAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout_fast);
         rotateToggleAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_toggle);
-
-
-
     }
 
     private void findComponents() {
@@ -70,7 +70,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         tv_sbMistakes = findViewById(R.id.tv_sb_mistakes);
         iv_outerCircle = findViewById(R.id.iv_result_img_circle);
         iv_innerResultIcon = findViewById(R.id.iv_result_inner_img);
-        iv_showMistakes = findViewById(R.id.iv_show_mistakes);
+        iv_show_mistakes2 = findViewById(R.id.iv_show_mistakes2);
         iv_restartTopic = findViewById(R.id.iv_restart_topic);
         iv_nextOrCorrect = findViewById(R.id.iv_next_topic_or_correct_mistakes);
         iv_toTopicList = findViewById(R.id.iv_to_topic_list);
@@ -121,7 +121,16 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         iv_toTopicList.setImageResource(R.drawable.icon_to_topics_dark1);
         tv_actionTitle1.setText(R.string.result_action_again_title);
         tv_actionTitle3.setText(R.string.result_action_to_topics_title);
-        iv_showMistakes.setOnCheckedChangeListener(this);
+
+
+
+        iv_show_mistakes2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isChecked = !isChecked;
+                checkChanged();
+            }
+        });
         iv_toTopicList.setOnClickListener(this);
 
         //no mistakes
@@ -173,7 +182,6 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         if(isChecked){
-
             tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
             tv_sbMistakes.startAnimation(fadeInFastAnimation);
             iv_showMistakes.startAnimation(fadeInFastAnimation);
@@ -182,10 +190,25 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             // добавить анимацию
         }else{
             tv_sbMistakes.setText("");
-//            iv_showMistakes.startAnimation(fadeInFastAnimation);
             iv_showMistakes.startAnimation(rotateToggleAnimation);
             iv_showMistakes.setBackgroundResource(R.drawable.icon_eye_active_dark);
 
+        }
+    }
+
+    private void checkChanged(){
+        if(isChecked){
+
+            tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
+            tv_sbMistakes.startAnimation(fadeInFastAnimation);
+            iv_show_mistakes2.startAnimation(fadeInFastAnimation);
+            iv_show_mistakes2.setImageDrawable(getResources().getDrawable(R.drawable.icon_eye_passive_dark, null));
+
+            // добавить анимацию
+        }else{
+            tv_sbMistakes.setText("");
+            iv_show_mistakes2.startAnimation(rotateToggleAnimation);
+            iv_show_mistakes2.setImageDrawable(getResources().getDrawable(R.drawable.icon_eye_active_dark, null));
         }
     }
 }
