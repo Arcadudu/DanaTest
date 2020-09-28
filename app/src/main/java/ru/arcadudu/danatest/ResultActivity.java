@@ -50,11 +50,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         getExtras();
         setAnimation();
         setDecoration();
-
-
-
-
     }
+
 
     private void setAnimation(){
         rotateCircleAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);

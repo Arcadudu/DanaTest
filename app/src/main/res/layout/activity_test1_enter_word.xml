@@ -16,8 +16,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/icon_end_test_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_restart_test"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

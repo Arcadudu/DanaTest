@@ -3,8 +3,11 @@ package ru.arcadudu.danatest.topic_selector;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import ru.arcadudu.danatest.R;
@@ -30,9 +34,13 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     ImageView btn_back;
     RecyclerView recyclerView;
 
+    ImageView ivSortTopics;
+
+    private int sortClicks = 0;
+
 
     private List<Topic> topicList = new ArrayList<>();
-    private RecyclerView.Adapter adapter;
+    private TopicAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,21 +48,45 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         setContentView(R.layout.activity_topic_picker);
 
         findComponents();
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-               startActivity(intent);
-               finish();
-            }
-        });
         getPossibleExtras();
         prepareTopicList();
         setRecyclerAdapter();
+        setOnClicks();
     }
 
-    public List<Topic> getTopicList() {
-        return topicList;
+    private void setRecyclerAnimation() {
+        Animation fadeInFast = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
+        recyclerView.startAnimation(fadeInFast);
+    }
+
+    private void setOnClicks() {
+        ivSortTopics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (sortClicks == 0) {
+                    setRecyclerAdapter();
+                    Collections.sort(topicList, Topic.compareByTitle);
+                    sortClicks++;
+                    ivSortTopics.setImageResource(R.drawable.icon_sort_by_dark);
+                } else {
+                    setRecyclerAdapter();
+                    Collections.sort(topicList, Topic.compareBySize);
+                    sortClicks = 0;
+                    ivSortTopics.setImageResource(R.drawable.icon_sort_by_name_dark);
+                }
+                setRecyclerAnimation();
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public List<String> fillList(int stringResourceId) {
@@ -64,6 +96,7 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     private void findComponents() {
         activityTitle = findViewById(R.id.tv_activity_title);
         btn_back = findViewById(R.id.iv_back);
+        ivSortTopics = findViewById(R.id.iv_sort_topics_menu);
     }
 
     public void getPossibleExtras() {
@@ -134,11 +167,15 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
             intent = new Intent(getApplicationContext(), Test1EnterWord.class);
         } else if (testTitle.equalsIgnoreCase("Четыре варианта")) {
             intent = new Intent(getApplicationContext(), Test3FourOptions.class);
-        } else if(testTitle.equalsIgnoreCase("Перемешать")){
+        } else if (testTitle.equalsIgnoreCase("Перемешать")) {
             intent = new Intent(getApplicationContext(), Test4Shuffle.class);
         }
         intent.putExtra("title", topic.getTitle());
         intent.putExtra(TEST_NAME, testTitle);
         startActivity(intent);
+    }
+
+    public List<Topic> getTopicList() {
+        return topicList;
     }
 }

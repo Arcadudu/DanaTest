@@ -52,8 +52,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
     public static class MyTopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // переменные
-        Button btn_title;
-        TextView tv_preview, tv_amount;
+        private Button btn_title;
+        private TextView tv_preview, tv_amount;
         OnTopicListener listener;
 
         // конструктор

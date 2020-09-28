@@ -1,9 +1,10 @@
 package ru.arcadudu.danatest.topic_selector;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-public class Topic {
+public class Topic implements Comparable<Topic>{
 
     private String title; // имя топика
     private int size; // количество слов одного направления
@@ -70,4 +71,25 @@ public class Topic {
     public void addPair(String newWord, String newTranslation) {
         pack.put(newWord, newTranslation);
     }
+
+    @Override
+    public int compareTo(Topic o) {
+        return this.getTitle().compareTo(o.getTitle());
+    }
+
+    public static Comparator<Topic> compareByTitle = new Comparator<Topic>() {
+        @Override
+        public int compare(Topic topic, Topic otherTopic) {
+            return topic.getTitle().compareTo(otherTopic.getTitle());
+        }
+    };
+
+    public static Comparator<Topic> compareBySize = new Comparator<Topic>() {
+        @Override
+        public int compare(Topic topic, Topic otherTopic) {
+            return otherTopic.getSize() - topic.getSize();
+        }
+    };
+
+
 }
