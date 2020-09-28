@@ -1,178 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/enter_word_test_background_wallpaper__1"
-    android:padding="10dp"
-    tools:context=".test.Test1EnterWord">
-
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_end_test"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/icon_end_test_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_restart_test"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_restart_dark" />
-
-    <TextView
-        android:id="@+id/tv_current_test_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_light"
-        android:gravity="center"
-        android:text="Четыре варианта"
-        android:textColor="@color/dark_title_text_color"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087" />
-
-    <TextView
-        android:id="@+id/tv_current_topic_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_light"
-        android:gravity="center"
-        android:text="Название темы"
-        android:textColor="@color/dark_description_text_color"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_current_test_name" />
-
-    <TextView
-        android:id="@+id/tv_quest_word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/raleway_light"
-        android:text="Гористый"
-        android:textColor="@color/dark_title_text_color"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_current_topic_name" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/dark_statusbar_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_quest_word" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/enter_word_test_background_wallpaper__1" />
 
 
-    <TextView
-        android:id="@+id/tv_word_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_light"
-        android:text="2/21"
-        android:textColor="@color/dark_hint_text_color"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_quest_word"
-        app:layout_constraintEnd_toEndOf="@+id/view" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".test.Test1EnterWord">
 
-    <Button
-        android:id="@+id/btn_option1"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="80dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:paddingBottom="2dp"
-        android:text="moutnainous"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-    <Button
-        android:id="@+id/btn_option2"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:paddingBottom="2dp"
-        android:text="mountainous"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_option1"
-        app:layout_constraintStart_toStartOf="@+id/btn_option1"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option1" />
+        <ImageView
+            android:id="@+id/iv_end_test"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_end_test_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_option3"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:paddingBottom="2dp"
-        android:text="mountanios"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_option2"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="@+id/btn_option2"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option2" />
+        <ImageView
+            android:id="@+id/iv_restart_test"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_restart_dark" />
 
-    <Button
-        android:id="@+id/btn_option4"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/dark_statusbar_color"
-        android:fontFamily="@font/raleway_regular"
-        android:gravity="center"
-        android:paddingBottom="2dp"
-        android:text="mautnatnios"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_icons_color"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_option3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_option3"
-        app:layout_constraintTop_toBottomOf="@+id/btn_option3" />
+        <TextView
+            android:id="@+id/tv_current_test_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_light"
+            android:gravity="center"
+            android:text="Четыре варианта"
+            android:textColor="@color/dark_title_text_color"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.087" />
 
+        <TextView
+            android:id="@+id/tv_current_topic_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_light"
+            android:gravity="center"
+            android:text="Название темы"
+            android:textColor="@color/dark_description_text_color"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_current_test_name" />
+
+        <TextView
+            android:id="@+id/tv_quest_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/raleway_light"
+            android:text="Гористый"
+            android:textColor="@color/dark_title_text_color"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_current_topic_name" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:background="@color/dark_statusbar_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_quest_word" />
+
+
+        <TextView
+            android:id="@+id/tv_word_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_light"
+            android:text="2/21"
+            android:textColor="@color/dark_hint_text_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_quest_word"
+            app:layout_constraintEnd_toEndOf="@+id/view" />
+
+        <Button
+            android:id="@+id/btn_option1"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/dark_statusbar_color"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:text="moutnainous"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_icons_color"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <Button
+            android:id="@+id/btn_option2"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/dark_statusbar_color"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:text="mountainous"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_icons_color"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_option1"
+            app:layout_constraintStart_toStartOf="@+id/btn_option1"
+            app:layout_constraintTop_toBottomOf="@+id/btn_option1" />
+
+        <Button
+            android:id="@+id/btn_option3"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/dark_statusbar_color"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:text="mountanios"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_icons_color"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_option2"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="@+id/btn_option2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_option2" />
+
+        <Button
+            android:id="@+id/btn_option4"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/dark_statusbar_color"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:text="mautnatnios"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_icons_color"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_option3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_option3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_option3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
