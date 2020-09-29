@@ -87,9 +87,11 @@ public class Test1EnterWord extends TestClass implements View.OnClickListener {
         iv_endTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TopicPickerActivity.class);
-                startActivity(intent);
-                finish();
+                //Intent intent = new Intent(getApplicationContext(), TopicPickerActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //Intent intent = new Intent(getApplicationContext(), TopicPickerActivity.class);
+                //startActivity(intent);
+                //finish();
+                onBackPressed();
             }
         });
     }

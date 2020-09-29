@@ -1,8 +1,10 @@
 package ru.arcadudu.danatest;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,13 +18,10 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         CountDownTimer countDownTimer = new CountDownTimer(2000, 500) {
-
-
             @Override
             public void onTick(long l) {
 
             }
-
             @Override
             public void onFinish() {
                 Intent intent = new Intent(SplashScreen.this, MainActivity.class);

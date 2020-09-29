@@ -1,7 +1,10 @@
 package ru.arcadudu.danatest.topic_selector;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import ru.arcadudu.danatest.Const;
 import ru.arcadudu.danatest.R;
 import ru.arcadudu.danatest.main_selector.MainActivity;
 import ru.arcadudu.danatest.test.Test1EnterWord;
@@ -38,6 +42,10 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
     private int sortClicks = 0;
 
+    SharedPreferences sPref;
+   // SharedPreferences.Editor editor = sPref.edit();
+
+
 
     private List<Topic> topicList = new ArrayList<>();
     private TopicAdapter adapter;
@@ -46,7 +54,7 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_picker);
-
+        sPref = getSharedPreferences(Const.spTag, Context.MODE_PRIVATE);
         findComponents();
         getPossibleExtras();
         prepareTopicList();
@@ -65,16 +73,16 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
             public void onClick(View view) {
 
                 if (sortClicks == 0) {
-                    setRecyclerAdapter();
                     Collections.sort(topicList, Topic.compareByTitle);
                     sortClicks++;
+
                     ivSortTopics.setImageResource(R.drawable.icon_sort_by_dark);
                 } else {
-                    setRecyclerAdapter();
-                    Collections.sort(topicList, Topic.compareBySize);
+                    Collections.sort(topicList, Topic.compareByStatus);
                     sortClicks = 0;
                     ivSortTopics.setImageResource(R.drawable.icon_sort_by_name_dark);
                 }
+                adapter.notifyDataSetChanged();
                 setRecyclerAnimation();
             }
         });
@@ -145,19 +153,26 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
                 break;
         }
 
+        topicList.clear();
 
-        topicList.add(new Topic("Великобритания", gbRuList));
-        topicList.add(new Topic("Лицо и его части", faceRuList));
-        topicList.add(new Topic("Части тела", bodyRuList));
-        topicList.add(new Topic("Временные константы", timeRuList));
-        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList));
+        topicList.add(new Topic("Великобритания", gbRuList, sPref.getBoolean("Великобритания", false) ));
+        topicList.add(new Topic("Лицо и его части", faceRuList, sPref.getBoolean("Лицо и его части", false) ));
+        topicList.add(new Topic("Части тела", bodyRuList, sPref.getBoolean("Части тела", false)));
+        Log.e("AA", "getBoolean = "+sPref.getBoolean("Части тела", false));
+        topicList.add(new Topic("Временные константы", timeRuList, sPref.getBoolean("Временные константы", false)));
+        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, sPref.getBoolean("Дом : базовый уровень", false)));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        prepareTopicList();
+        adapter.setData(topicList);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onTopicClick(int position) {
-        // на данный момент предусмотрена логика только для перехода в первый тест "перевод слова"
-        // в дальнейшем разбить слушатель для разный тестов
-
         Intent intent = new Intent(this, Test1EnterWord.class);
         Topic topic = topicList.get(position);
 

@@ -6,11 +6,22 @@ import java.util.Map;
 
 public class Topic implements Comparable<Topic>{
 
+
     private String title; // имя топика
     private int size; // количество слов одного направления
     private List<String> words; // список слов
     private List<String> translations; // список переводов
     private Map<String, String> pack; // карта  (слово — перевод)
+
+    private boolean testPassed = false;
+
+    public boolean isTestPassed() {
+        return testPassed;
+    }
+
+    public void setTestPassed(boolean testPassed) {
+        this.testPassed = testPassed;
+    }
 
     public Topic(String title, List<String> words, List<String> translations) {
         this.title = title;
@@ -18,10 +29,11 @@ public class Topic implements Comparable<Topic>{
         this.translations = translations;
         this.size = words.size();
     }
-    public Topic(String title, List<String> words){
+    public Topic(String title, List<String> words, boolean testPassed){
         this.title = title;
         this.words = words;
         this.size = words.size();
+        this.testPassed = testPassed;
     }
 
     public Map<String, String> getPack(List<String> words, List<String> translations) {
@@ -88,6 +100,13 @@ public class Topic implements Comparable<Topic>{
         @Override
         public int compare(Topic topic, Topic otherTopic) {
             return otherTopic.getSize() - topic.getSize();
+        }
+    };
+
+    public static Comparator<Topic> compareByStatus = new Comparator<Topic>() {
+        @Override
+        public int compare(Topic topic, Topic otherTopic) {
+            return Boolean.compare(topic.isTestPassed(), otherTopic.isTestPassed());
         }
     };
 

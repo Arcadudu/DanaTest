@@ -142,6 +142,7 @@ public abstract class TestClass extends AppCompatActivity {
                 Log.d(TAG, "onClick: mistakes: " + mistakes + " // mistakesList.length: " + mistakeList.size());
                 Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
                 intent.putExtra(TEST_NAME, tv_currentTest.getText().toString());
+                intent.putExtra(TOPIC_NAME, topicName);
                 intent.putExtra("mistakes", String.valueOf(mistakes));
                 double percentage = (mistakes / listRu.size()) * 100;
                 intent.putExtra("percentage", String.valueOf(percentage));
