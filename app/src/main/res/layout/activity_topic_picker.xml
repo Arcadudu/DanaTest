@@ -57,7 +57,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:scaleType="fitEnd"
-            android:src="@drawable/icon_sort_by_name_dark"
+            android:src="@drawable/icon_sort_by_dark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

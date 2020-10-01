@@ -5,12 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,19 +34,14 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
     private static final String TEST_NAME = "testName";
     private static final String TAG = "tag";
     private String testName;
+    private int sortClicks = 0;
 
     TextView activityTitle;
     ImageView btn_back;
     RecyclerView recyclerView;
-
     ImageView ivSortTopics;
 
-    private int sortClicks = 0;
-
     SharedPreferences sPref;
-   // SharedPreferences.Editor editor = sPref.edit();
-
-
 
     private List<Topic> topicList = new ArrayList<>();
     private TopicAdapter adapter;
@@ -72,19 +68,32 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
             @Override
             public void onClick(View view) {
 
-                if (sortClicks == 0) {
-                    Collections.sort(topicList, Topic.compareByTitle);
-                    sortClicks++;
+                final PopupMenu popup = new PopupMenu(getApplicationContext(), ivSortTopics);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-                    ivSortTopics.setImageResource(R.drawable.icon_sort_by_dark);
-                } else {
-                    Collections.sort(topicList, Topic.compareByStatus);
-                    sortClicks = 0;
-                    ivSortTopics.setImageResource(R.drawable.icon_sort_by_name_dark);
-                }
-                adapter.notifyDataSetChanged();
-                setRecyclerAnimation();
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.sort_by_name:
+                                Collections.sort(topicList, Topic.compareByTitle);
+                                adapter.notifyDataSetChanged();
+                                return true;
+                            case R.id.sort_by_size:
+                                Collections.sort(topicList, Topic.compareBySize);
+                                adapter.notifyDataSetChanged();
+                                return true;
+                            case R.id.sort_by_status:
+                                Collections.sort(topicList, Topic.compareByStatus);
+                                adapter.notifyDataSetChanged();
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
             }
+
         });
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -155,10 +164,10 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
         topicList.clear();
 
-        topicList.add(new Topic("Великобритания", gbRuList, sPref.getBoolean("Великобритания", false) ));
-        topicList.add(new Topic("Лицо и его части", faceRuList, sPref.getBoolean("Лицо и его части", false) ));
+        topicList.add(new Topic("Великобритания", gbRuList, sPref.getBoolean("Великобритания", false)));
+        topicList.add(new Topic("Лицо и его части", faceRuList, sPref.getBoolean("Лицо и его части", false)));
         topicList.add(new Topic("Части тела", bodyRuList, sPref.getBoolean("Части тела", false)));
-        Log.e("AA", "getBoolean = "+sPref.getBoolean("Части тела", false));
+        Log.e("AA", "getBoolean = " + sPref.getBoolean("Части тела", false));
         topicList.add(new Topic("Временные константы", timeRuList, sPref.getBoolean("Временные константы", false)));
         topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, sPref.getBoolean("Дом : базовый уровень", false)));
     }

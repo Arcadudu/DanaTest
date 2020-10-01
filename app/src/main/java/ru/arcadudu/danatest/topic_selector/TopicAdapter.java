@@ -46,7 +46,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
     public void onBindViewHolder(@NonNull TopicAdapter.MyTopicViewHolder holder, int position) {
         Log.d("AA", "onBindViewHolder: isPassed: " + topicList.get(position).isTestPassed());
         if (topicList.get(position).isTestPassed()) {
-            holder.btn_title.setBackgroundColor(context.getResources().getColor(R.color.red_incorrect, null));
+            holder.btn_title.setBackgroundResource(R.drawable.topic_excellent_background);
         } else {
             holder.btn_title.setBackgroundColor(Color.TRANSPARENT);
         }

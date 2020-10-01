@@ -40,7 +40,6 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     Animation rotateCircleAnimation, rotateToggleAnimation, fadeInAnimation, fadeInFastAnimation, fadeOutFastAnimation;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    private void setAnimation(){
+    private void setAnimation() {
         rotateCircleAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
         fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
         fadeInFastAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein_fast);
@@ -92,10 +91,10 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             // количество ошибок
             if (intent.hasExtra("mistakes")) {
                 String mistakesString = intent.getStringExtra("mistakes");
-               if(mistakesString!=null) {
-                   mistakes = Double.parseDouble(mistakesString);
-               }
-               Log.d(TAG, "getDoubleExtras: mistakesString: " + mistakesString + "    mistakesDouble:" + mistakes);
+                if (mistakesString != null) {
+                    mistakes = Double.parseDouble(mistakesString);
+                }
+                Log.d(TAG, "getDoubleExtras: mistakesString: " + mistakesString + "    mistakesDouble:" + mistakes);
             }
             // процент ошибок
             if (intent.hasExtra("percentage")) {
@@ -106,7 +105,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             }
 
             // список ошибок для отображения
-            if(intent.hasExtra("sbMistakes")){
+            if (intent.hasExtra("sbMistakes")) {
                 sbMistakes = intent.getStringExtra("sbMistakes");
             }
 
@@ -119,8 +118,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         tv_actionTitle1.setText(R.string.result_action_again_title);
         tv_actionTitle3.setText(R.string.result_action_to_topics_title);
         SharedPreferences sharedPreferences = getSharedPreferences(Const.spTag, MODE_PRIVATE);
-        SharedPreferences.Editor  editor = sharedPreferences.edit();
-
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
 
         iv_show_mistakes2.setOnClickListener(new View.OnClickListener() {
@@ -132,11 +130,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         });
         iv_toTopicList.setOnClickListener(this);
 
-        Log.e("AA", "put topic = "+topicExtra);
-        //no mistakes
+        Log.e("AA", "put topic = " + topicExtra);
+
+
         if (percentage == 0.0) {
             editor.putBoolean(topicExtra, true);
-
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Отлично");
             iv_show_mistakes2.setEnabled(false);
@@ -146,7 +144,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             tv_actionTitle2.setText(getResources().getString(R.string.result_action_forward_title));
             // < 20 %
         } else if (percentage <= 20) {
-            editor.putBoolean(topicExtra , true);
+            editor.putBoolean(topicExtra, true);
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Хорошо. Ошибок: " + (int) mistakes);
             iv_innerResultIcon.setImageResource(R.drawable.icon_result_good_dark);
@@ -186,12 +184,12 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-        if(isChecked){
+        if (isChecked) {
             tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
             tv_sbMistakes.startAnimation(fadeInFastAnimation);
             iv_showMistakes.startAnimation(fadeInFastAnimation);
             iv_showMistakes.setBackgroundResource(R.drawable.icon_eye_passive_dark);
-        }else{
+        } else {
             tv_sbMistakes.setText("");
             iv_showMistakes.startAnimation(rotateToggleAnimation);
             iv_showMistakes.setBackgroundResource(R.drawable.icon_eye_active_dark);
@@ -199,14 +197,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void checkChanged(){
-        if(isChecked){
+    private void checkChanged() {
+        if (isChecked) {
             tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
             tv_sbMistakes.startAnimation(fadeInFastAnimation);
             iv_show_mistakes2.startAnimation(fadeInFastAnimation);
             iv_show_mistakes2.setImageDrawable(getResources().getDrawable(R.drawable.icon_eye_passive_dark, null));
             // добавить анимацию
-        }else{
+        } else {
             tv_sbMistakes.setText("");
             iv_show_mistakes2.startAnimation(rotateToggleAnimation);
             iv_show_mistakes2.setImageDrawable(getResources().getDrawable(R.drawable.icon_eye_active_dark, null));
