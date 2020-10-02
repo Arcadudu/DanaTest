@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:fontFamily="@font/raleway_regular"
-        android:gravity="start|center"
+        android:gravity="center_horizontal|center"
         android:text="Topic title"
         android:paddingStart="0dp"
         android:textColor="@color/dark_title_text_color"

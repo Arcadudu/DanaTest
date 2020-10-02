@@ -13,23 +13,23 @@ public class Topic implements Comparable<Topic>{
     private List<String> translations; // список переводов
     private Map<String, String> pack; // карта  (слово — перевод)
 
-    private boolean testPassed = false;
+    private String testPassed = "C";
 
-    public boolean isTestPassed() {
+    public String isTestPassed() {
         return testPassed;
     }
 
-    public void setTestPassed(boolean testPassed) {
+    public void setTestPassed(String testPassed) {
         this.testPassed = testPassed;
     }
 
-    public Topic(String title, List<String> words, List<String> translations) {
-        this.title = title;
-        this.words = words;
-        this.translations = translations;
-        this.size = words.size();
-    }
-    public Topic(String title, List<String> words, boolean testPassed){
+//    public Topic(String title, List<String> words, List<String> translations) {
+//        this.title = title;
+//        this.words = words;
+//        this.translations = translations;
+//        this.size = words.size();
+//    }
+    public Topic(String title, List<String> words, String testPassed){
         this.title = title;
         this.words = words;
         this.size = words.size();
@@ -106,7 +106,7 @@ public class Topic implements Comparable<Topic>{
     public static Comparator<Topic> compareByStatus = new Comparator<Topic>() {
         @Override
         public int compare(Topic topic, Topic otherTopic) {
-            return Boolean.compare(topic.isTestPassed(), otherTopic.isTestPassed());
+            return otherTopic.isTestPassed().compareTo(topic.isTestPassed());
         }
     };
 

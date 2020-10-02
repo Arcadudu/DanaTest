@@ -164,12 +164,13 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
 
         topicList.clear();
 
-        topicList.add(new Topic("Великобритания", gbRuList, sPref.getBoolean("Великобритания", false)));
-        topicList.add(new Topic("Лицо и его части", faceRuList, sPref.getBoolean("Лицо и его части", false)));
-        topicList.add(new Topic("Части тела", bodyRuList, sPref.getBoolean("Части тела", false)));
-        Log.e("AA", "getBoolean = " + sPref.getBoolean("Части тела", false));
-        topicList.add(new Topic("Временные константы", timeRuList, sPref.getBoolean("Временные константы", false)));
-        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, sPref.getBoolean("Дом : базовый уровень", false)));
+        topicList.add(new Topic("Великобритания", gbRuList, sPref.getString("Великобритания", "C")));
+        topicList.add(new Topic("Части тела", bodyRuList, sPref.getString("Части тела", "failed")));
+        topicList.add(new Topic("Лицо и его части", faceRuList, sPref.getString("Лицо и его части", "C")));
+        //Log.e("AA", "getBoolean = " + sPref.getString("Части тела", "failed"));
+        topicList.add(new Topic("Временные константы", timeRuList, sPref.getString("Временные константы", "C")));
+        topicList.add(new Topic("Дом : базовый уровень", houseBasicRuList, sPref.getString("Дом : базовый уровень", "C")));
+
     }
 
     @Override

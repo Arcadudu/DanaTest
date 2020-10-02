@@ -29,6 +29,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     private double percentage;
     private boolean isChecked = false;
 
+
+    public static final String excellent = "A";
+    public static final String good = "B";
+
+
     TextView tv_activityTitle, tv_gradeDescription;
     TextView tv_actionTitle1, tv_actionTitle2, tv_actionTitle3;
     TextView tv_sbMistakes;
@@ -134,7 +139,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
 
         if (percentage == 0.0) {
-            editor.putBoolean(topicExtra, true);
+            editor.putString(topicExtra, excellent);
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Отлично");
             iv_show_mistakes2.setEnabled(false);
@@ -144,7 +149,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             tv_actionTitle2.setText(getResources().getString(R.string.result_action_forward_title));
             // < 20 %
         } else if (percentage <= 20) {
-            editor.putBoolean(topicExtra, true);
+            editor.putString(topicExtra, good);
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Хорошо. Ошибок: " + (int) mistakes);
             iv_innerResultIcon.setImageResource(R.drawable.icon_result_good_dark);
