@@ -198,6 +198,7 @@ public class TopicPickerActivity extends AppCompatActivity implements TopicAdapt
         intent.putExtra("title", topic.getTitle());
         intent.putExtra(TEST_NAME, testTitle);
         startActivity(intent);
+//        overridePendingTransition(R.anim.fadein_fast, R.anim.fadeout_fast);
     }
 
     public List<Topic> getTopicList() {

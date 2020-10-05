@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="16dp">
 
     <Button
         android:id="@+id/btn_topic_title"
-        style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:fontFamily="@font/raleway_regular"
         android:gravity="center_horizontal|center"
+        android:background="@drawable/drawable_rectangle_button_nonselected"
         android:text="Topic title"
-        android:paddingStart="0dp"
-        android:textColor="@color/dark_title_text_color"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textColor="@color/material_title_text_color"
+        android:textSize="16sp"
+        android:elevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,10 +25,12 @@
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView2"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
+        android:background="@color/material_body_background"
         android:scrollbarFadeDuration="250"
         android:scrollbarSize="1dp"
         android:scrollbarStyle="insideInset"
+        android:elevation="4dp"
         android:scrollbarThumbHorizontal="@color/dark_scrollbar_color"
         android:scrollbarTrackHorizontal="@color/dark_scrollbar_track_color"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,14 +40,14 @@
 
         <TextView
             android:id="@+id/tv_preview"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:fontFamily="@font/raleway_light_italic"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:fontFamily="@font/roboto_light"
             android:gravity="center_vertical|start"
+            android:paddingStart="5dp"
             android:text="word1, word2, word3, word4"
-            android:textColor="@color/dark_description_text_color"
-            android:textSize="20sp"
-            android:textStyle="italic"
+            android:textColor="@color/material_yellow_transparent"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_topic_title" />
@@ -55,29 +57,21 @@
     <TextView
         android:id="@+id/amount"
         android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:fontFamily="@font/raleway_light"
-        android:gravity="bottom|end"
-        android:paddingEnd="10dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center_vertical|end"
+        android:paddingEnd="8dp"
+        android:background="@color/material_body_background"
         android:text="@string/words_counter"
-        android:textColor="@color/dark_hint_text_color"
-        android:textSize="14sp"
+        android:elevation="3dp"
+        android:textColor="@color/material_description_text_color"
+        android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
-    <TextView
-        android:id="@+id/tv_borderline"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/dark_statusbar_color"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

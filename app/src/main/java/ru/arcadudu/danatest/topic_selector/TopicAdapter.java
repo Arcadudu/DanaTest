@@ -49,12 +49,11 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyTopicViewH
         String topicResult = topicList.get(position).isTestPassed();
 
         if (topicResult.equalsIgnoreCase("A")) {
-            holder.btn_title.setBackgroundResource(R.drawable.topic_excellent_background_centered); // зеленая подложка
+            holder.btn_title.setBackgroundResource(R.drawable.drawable_rectangle_button_green); // зеленая подложка
         } else if (topicResult.equalsIgnoreCase("B")) {
-            holder.btn_title.setBackgroundResource(R.drawable.topic_good_background); // желтая подложка
+            holder.btn_title.setBackgroundResource(R.drawable.drawable_rectangle_button_yellow); // желтая подложка
         } else {
-            holder.btn_title.setBackgroundResource(R.drawable.topic_notpassed_background_dark);
-            //holder.btn_title.setBackgroundColor(Color.TRANSPARENT); // без изменений
+            holder.btn_title.setBackgroundResource(R.drawable.drawable_rectangle_button_nonselected);
         }
         holder.btn_title.setText(topicList.get(position).getTitle());
         holder.tv_preview.setText(topicList.get(position).getPreview());

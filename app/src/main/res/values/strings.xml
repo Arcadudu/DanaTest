@@ -1,17 +1,23 @@
 <resources>
     <string name="app_name">DanaTest</string>
-
-    <string name="home_title">Доступные тесты</string>
     <string name="topic_picker_title">Доступные темы</string>
 
+<!--test_picker-->
+    <string name="home_title">Доступные тесты</string>
     <string name="test1_title">Прямой перевод</string>
-    <string name="test1_description">Укажите верный перевод слова</string>
+    <string name="test1_description">Укажите корректный перевод\n
+    предложенного слова</string>
     <string name="test2_title">Вставить слово</string>
-    <string name="test2_description">Вставьте подходящее слово в предложение</string>
+    <string name="test2_description">Вставьте подходящее слово\n
+    в предложение </string>
     <string name="test3_title">Четыре варианта</string>
-    <string name="test3_description">Выберите верный вариант перевода слова</string>
+    <string name="test3_description">Выберите верный перевод слова\n
+    из предложенных вариантов</string>
     <string name="test4_title">Перемешать</string>
-    <string name="test4_description">Угадайте слово, буквы в котором перемешаны</string>
+    <string name="test4_description">Угадайте слово, буквы в котором\n
+    случайно перемешаны</string>
+    <string name="topics_counter">0/5</string>
+
 
 
     <string name="words_counter">Количество слов: </string>

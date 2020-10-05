@@ -33,4 +33,30 @@
     <color name="dark_background_main">#2E2E2E</color>
 
 
+
+
+<!--material_pallet-->
+
+<!--background_set-->
+    <color name="material_darkest_background">#303030</color>
+    <color name="material_header_background">#424242</color>
+    <color name="material_body_background">#424242</color>
+
+<!--transparent_set-->
+    <color name="material_non_selected">#4D303030</color>
+    <color name="material_green_transparent">#4D7DDC56</color>
+    <color name="material_yellow_transparent">#4DFFDA63</color>
+    <color name="material_red_transparent">#4DF6555B</color>
+
+<!--text_set-->
+    <color name="material_title_text_color">#C8CFD1</color>
+    <color name="material_description_text_color">#707070</color>
+    <color name="material_icon_background">#424242</color>
+    <color name="material_icon_color">#C8CFD1</color>
+
+    <color name="material_status_bar_red">#69393B</color>
+    <color name="material_status_bar_green">#456239</color>
+    <color name="material_status_bar_yellow">#6C613D</color>
+
+
 </resources>
