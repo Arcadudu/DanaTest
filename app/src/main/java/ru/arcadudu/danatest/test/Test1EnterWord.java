@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ public class Test1EnterWord extends TestClass implements View.OnClickListener {
     ImageView iv_endTest, iv_restartTest;
     TextView tv_questWord, tv_wordCount;
     EditText et_answerField;
-    Button btnNext, btnClear;
+    ImageButton btnNext, btnClear;
 
     private int[] strResources = {R.array.gbRuPlain, R.array.gbEngPlain,
             R.array.bodyRuPlain, R.array.bodyEngPlain, R.array.faceRuPlain, R.array.faceEngPlain,
@@ -108,7 +109,8 @@ public class Test1EnterWord extends TestClass implements View.OnClickListener {
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
-            sbMistakes.append("✗ ").append(answer).append(" ✓ ").append(check).append("*");
+            sbMistakes.append(answer).append("\n");
+            sbCorrects.append(check).append("\n");
         }
 
     }

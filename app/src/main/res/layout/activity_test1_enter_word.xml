@@ -9,22 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/enter_word_test_background_wallpaper__1" />
+        android:src="@drawable/material_testing_background" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        tools:context=".test.Test1EnterWord">
+        tools:context=".test.Test1EnterWord"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <ImageView
             android:id="@+id/iv_end_test"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/icon_end_test_dark"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/material_icon_end_test"
             app:layout_constraintBottom_toBottomOf="@+id/iv_restart_test"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.011"
@@ -33,15 +35,15 @@
 
         <ImageView
             android:id="@+id/iv_restart_test"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_restart_dark" />
+            app:srcCompat="@drawable/material_icon_restart" />
 
         <TextView
             android:id="@+id/tv_current_test_name"
@@ -50,11 +52,10 @@
             android:fontFamily="@font/raleway_light"
             android:gravity="center"
             android:text="Прямой перевод"
-            android:textColor="@color/dark_title_text_color"
-            android:textSize="28sp"
+            android:textColor="@color/material_title_text_color"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.087" />
@@ -63,6 +64,7 @@
             android:id="@+id/tv_current_topic_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
             android:fontFamily="@font/raleway_light"
             android:gravity="center"
             android:text="Название темы"
@@ -80,7 +82,8 @@
             android:fontFamily="@font/raleway_light"
             android:text="Урбанистический"
             android:textColor="@color/dark_title_text_color"
-            android:textSize="32sp"
+            android:textSize="26sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_current_topic_name" />
@@ -101,50 +104,45 @@
         <EditText
             android:id="@+id/et_answer_field"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
-            android:background="@color/dark_statusbar_color"
+            android:background="@drawable/drawable_rectangle_button_nonselected"
             android:fontFamily="@font/raleway_regular"
             android:gravity="center"
             android:hint="Введите перевод"
             android:inputType="textVisiblePassword|textNoSuggestions"
-            android:paddingBottom="10dp"
-            android:textColor="@color/dark_title_text_color"
-            android:textColorHint="@color/dark_hint_text_color"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            android:paddingBottom="5dp"
+            android:textColor="@color/material_title_text_color"
+            android:textColorHint="@color/material_description_text_color"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_restart_test"
+            app:layout_constraintStart_toStartOf="@+id/iv_end_test"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_clear"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/raleway_regular"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="Стереть"
-            android:textColor="@color/dark_icons_color"
-            android:textSize="18sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/material_button_clear"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_answer_field" />
 
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_next"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="40dp"
-            android:fontFamily="@font/raleway_regular"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
             android:gravity="center"
-            android:text="Готово"
-            android:textColor="@color/dark_icons_color"
-            android:textSize="18sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/material_button_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_answer_field" />
 
@@ -152,10 +150,10 @@
             android:id="@+id/tv_word_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway_light"
+            android:fontFamily="@font/roboto_light"
             android:text="2/21"
             android:textColor="@color/dark_hint_text_color"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_quest_word"
             app:layout_constraintEnd_toEndOf="@+id/view" />
 

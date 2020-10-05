@@ -26,7 +26,8 @@ public abstract class TestClass extends AppCompatActivity {
     protected List<String> listRu, listEng;
     protected Map<String, String> map, plainMap;
 
-    protected StringBuilder sbMistakes = new StringBuilder("");
+    protected StringBuilder sbMistakes = new StringBuilder();
+    protected StringBuilder sbCorrects = new StringBuilder();
     protected String topicName;
     protected String quest;
     protected int index = 0;
@@ -129,6 +130,7 @@ public abstract class TestClass extends AppCompatActivity {
         mistakes = 0;
         mistakeList.clear();
         sbMistakes.setLength(0);
+        sbCorrects.setLength(0);
         setGame();
     }
 
@@ -148,6 +150,7 @@ public abstract class TestClass extends AppCompatActivity {
                 intent.putExtra("percentage", String.valueOf(percentage));
                 Log.d(TAG, "onClick: percentageInExtra " + intent.getStringExtra("percentage"));
                 intent.putExtra("sbMistakes", sbMistakes.toString());
+                intent.putExtra("sbCorrects", sbCorrects.toString());
                 startActivity(intent);
                 finish();
             }

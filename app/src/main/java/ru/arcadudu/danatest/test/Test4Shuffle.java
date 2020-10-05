@@ -104,7 +104,8 @@ public class Test4Shuffle extends TestClass implements View.OnClickListener {
         if (!answer.equalsIgnoreCase(quest)) {
             mistakes++;
             mistakeList.add(quest);
-            sbMistakes.append("✗ ").append(answer).append(" ✓ ").append(quest).append("*");
+            sbMistakes.append(answer).append("\n");
+            sbCorrects.append(quest).append("\n");
         }
     }
 

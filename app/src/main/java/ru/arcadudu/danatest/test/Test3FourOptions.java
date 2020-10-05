@@ -146,7 +146,8 @@ public class Test3FourOptions extends TestClass {
         if (!answer.equalsIgnoreCase(check)) {
             mistakes++;
             mistakeList.add(quest);
-            sbMistakes.append("✗ ").append(answer).append("  ||  ").append("✓ ").append(check).append("*");
+            sbMistakes.append(answer).append("\n");
+            sbCorrects.append(check).append("\n");
 //            Toast.makeText(this, "Ошибка! Правильный ответ: "+check, Toast.LENGTH_SHORT).show();
         }
     }

@@ -3,9 +3,6 @@ package ru.arcadudu.danatest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-//import android.transition.AutoTransition;
-//import android.transition.TransitionManager;
-//import android.transition.Visibility;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -15,10 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import ru.arcadudu.danatest.topic_selector.TopicPickerActivity;
+
+//import android.transition.AutoTransition;
+//import android.transition.TransitionManager;
+//import android.transition.Visibility;
 
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,7 +28,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private String titleExtra, topicExtra;
-    private String sbMistakes;
+    private String sbMistakes, sbCorrects;
     private double mistakes;
     private double percentage;
     private boolean isChecked = false;
@@ -42,16 +42,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
     // expandable part
     ConstraintLayout expandableView;
-    CardView emptyScene;
+    // CardView emptyScene;
     ImageView ivCorrectIcon, ivWrongIcon;
 
 
     TextView tv_activityTitle, tv_gradeDescription;
-    //    TextView tv_actionTitle1, tv_actionTitle2, tv_actionTitle3;
-    TextView tv_sbMistakes;
+    TextView tv_sbMistakes, tv_sbCorrects;
     ImageView iv_innerResultIcon, iv_outerCircle;
-//    ImageView iv_show_mistakes_eye_icon;
-    ImageView iv_restartTopic, iv_nextOrCorrect, iv_toTopicList;
+    ImageView iv_restartTopic, iv_to_troubleShooting, iv_toTopicList;
 
     Animation rotateCircleAnimation, rotateToggleAnimation, fadeInAnimation, fadeInFastAnimation, fadeOutFastAnimation;
 
@@ -63,6 +61,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
         findComponents();
         getExtras();
+        showMistakes(sbMistakes, sbCorrects);
         setAnimation();
         setDecoration();
     }
@@ -79,19 +78,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         tv_activityTitle = findViewById(R.id.tv_test_passed_title);
         tv_gradeDescription = findViewById(R.id.tv_result_grade_description);
         tv_sbMistakes = findViewById(R.id.tv_sb_mistakes);
+        tv_sbCorrects = findViewById(R.id.tv_sb_corrects);
         iv_outerCircle = findViewById(R.id.iv_result_img_circle);
         iv_innerResultIcon = findViewById(R.id.iv_result_inner_img);
-//        iv_show_mistakes_eye_icon = findViewById(R.id.iv_show_mistakes2);
         iv_restartTopic = findViewById(R.id.iv_restart_topic);
-        iv_nextOrCorrect = findViewById(R.id.iv_next_topic_or_correct_mistakes);
+        iv_to_troubleShooting = findViewById(R.id.iv_to_trouble_shooting);
         iv_toTopicList = findViewById(R.id.iv_to_topic_list);
-//        tv_actionTitle1 = findViewById(R.id.tv_action_title1);
-//        tv_actionTitle2 = findViewById(R.id.tv_action_title2);
-//        tv_actionTitle3 = findViewById(R.id.tv_action_title3);
         iv_activityBackground = findViewById(R.id.iv_result_background_image);
-
         expandableView = findViewById(R.id.expandable_constraint);
-//        emptyScene = findViewById(R.id.cardview_empty_scene);
         ivCorrectIcon = findViewById(R.id.iv_correct_icon);
         ivWrongIcon = findViewById(R.id.iv_wrong_icon);
     }
@@ -129,41 +123,24 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             if (intent.hasExtra("sbMistakes")) {
                 sbMistakes = intent.getStringExtra("sbMistakes");
             }
+            if (intent.hasExtra("sbCorrects") && intent.getStringExtra("sbCorrects") != null) {
+                sbCorrects = intent.getStringExtra("sbCorrects");
+            }
 
         }
     }
 
+    private void showMistakes(String str1, String str2) {
+        tv_sbMistakes.setText(str1);
+        tv_sbCorrects.setText(str2);
+        ivCorrectIcon.setImageResource(R.drawable.material_icon_correct_answer);
+        ivWrongIcon.setImageResource(R.drawable.material_icon_wrong_answer);
+    }
+
     private void setDecoration() {
         Window window = getWindow();
-        iv_restartTopic.setImageResource(R.drawable.material_icon_restart_this_topic);
-        iv_toTopicList.setImageResource(R.drawable.material_move_to_topic);
-//        tv_actionTitle1.setText(R.string.result_action_again_title);
-//        tv_actionTitle3.setText(R.string.result_action_to_topics_title);
         SharedPreferences sharedPreferences = getSharedPreferences(Const.spTag, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-
-//        iv_show_mistakes_eye_icon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(expandableView.getVisibility()== View.GONE){
-//                    TransitionManager.beginDelayedTransition(emptyScene, new AutoTransition());
-//                    expandableView.setVisibility(View.VISIBLE);
-//                    tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
-//                    tv_sbMistakes.startAnimation(fadeInFastAnimation);
-//                    ivCorrectIcon.setImageResource(R.drawable.material_icon_correct_answer);
-//                    ivWrongIcon.setImageResource(R.drawable.material_icon_wrong_answer);
-//                    iv_show_mistakes_eye_icon.setImageDrawable(getResources().getDrawable(R.drawable.material_icon_show_mistakes_passive, null));
-//                }else{
-//                    TransitionManager.beginDelayedTransition(emptyScene, new AutoTransition());
-//                    expandableView.setVisibility(View.INVISIBLE);
-//                    tv_sbMistakes.setText("");
-//                    iv_show_mistakes_eye_icon.setImageDrawable(getResources().getDrawable(R.drawable.material_icon_show_mistakes_active, null));
-//                }
-////                isChecked = !isChecked;
-////                checkChanged();
-//            }
-//        });
 
 
         iv_toTopicList.setOnClickListener(this);
@@ -174,37 +151,40 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         if (percentage == 0.0) {
             expandableView.setBackgroundColor(getColor(R.color.material_status_bar_green));
             window.setStatusBarColor(getColor(R.color.material_status_bar_green));
-            iv_activityBackground.setImageResource(R.drawable.material_result_green_background);
+            iv_activityBackground.setBackgroundColor(getColor(R.color.material_status_bar_green));
+            iv_restartTopic.setImageResource(R.drawable.material_icon_restart_this_topic_green);
+            iv_toTopicList.setImageResource(R.drawable.material_move_to_topic_green);
             editor.putString(topicExtra, excellent);
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Отлично");
-//            iv_show_mistakes_eye_icon.setEnabled(false);
-//            iv_show_mistakes_eye_icon.setVisibility(View.INVISIBLE);
             iv_innerResultIcon.setImageResource(R.drawable.material_drawable_inner_result_excellent);
-            iv_nextOrCorrect.setEnabled(false);
-            iv_nextOrCorrect.setVisibility(View.INVISIBLE);
-//            tv_actionTitle2.setText(getResources().getString(R.string.result_action_forward_title));
+            iv_to_troubleShooting.setEnabled(false);
+            iv_to_troubleShooting.setVisibility(View.INVISIBLE);
+            ivCorrectIcon.setVisibility(View.INVISIBLE);
+            ivWrongIcon.setVisibility(View.INVISIBLE);
             // < 20 %
         } else if (percentage <= 20) {
             expandableView.setBackgroundColor(getColor(R.color.material_status_bar_yellow));
             window.setStatusBarColor(getColor(R.color.material_status_bar_yellow));
-            iv_activityBackground.setImageResource(R.drawable.material_result_yellow_background);
+            iv_activityBackground.setBackgroundColor(getColor(R.color.material_status_bar_yellow));
+            iv_restartTopic.setImageResource(R.drawable.material_icon_restart_this_topic_yellow);
+            iv_toTopicList.setImageResource(R.drawable.material_move_to_topic_yellow);
+            iv_to_troubleShooting.setImageResource(R.drawable.material_icon_troubleshooting_yellow);
             editor.putString(topicExtra, good);
             tv_activityTitle.setText("Тест пройден");
             tv_gradeDescription.setText("Хорошо. Ошибок: " + (int) mistakes);
             iv_innerResultIcon.setImageResource(R.drawable.material_drawable_inner_result_good);
-            iv_nextOrCorrect.setImageResource(R.drawable.material_icon_troubleshooting);
-//            tv_actionTitle2.setText(getResources().getString(R.string.result_action_troubleshooting_title));
             // > 20 %
         } else if (percentage > 20.0) {
             expandableView.setBackgroundColor(getColor(R.color.material_status_bar_red));
             window.setStatusBarColor(getColor(R.color.material_status_bar_red));
-            iv_activityBackground.setImageResource(R.drawable.material_result_red_background);
+            iv_activityBackground.setBackgroundColor(getColor(R.color.material_status_bar_red));
+            iv_restartTopic.setImageResource(R.drawable.material_icon_restart_this_topic_red);
+            iv_toTopicList.setImageResource(R.drawable.material_move_to_topic_red);
+            iv_to_troubleShooting.setImageResource(R.drawable.material_icon_troubleshooting_red);
             tv_activityTitle.setText("Тест не пройден");
             tv_gradeDescription.setText("Ошибок : " + (int) mistakes);
             iv_innerResultIcon.setImageResource(R.drawable.material_drawable_inner_result_failed);
-            iv_nextOrCorrect.setImageResource(R.drawable.material_icon_troubleshooting);
-//            tv_actionTitle2.setText(getResources().getString(R.string.result_action_troubleshooting_title));
         }
 
         editor.apply();
@@ -226,21 +206,5 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     }
-
-//    private void checkChanged() {
-//            // открыть ошибки
-//        if (isChecked) {
-//            TransitionManager.beginDelayedTransition(emptyScene, new AutoTransition());
-//            expandableView.setVisibility(View.VISIBLE);
-//            tv_sbMistakes.setText(sbMistakes.replace("*", "\n").trim());
-//            tv_sbMistakes.startAnimation(fadeInFastAnimation);
-//            iv_show_mistakes_eye_icon.setImageDrawable(getResources().getDrawable(R.drawable.material_icon_show_mistakes_passive, null));
-//            // закрыть ошибки
-//        } else {
-//            TransitionManager.beginDelayedTransition(emptyScene, new AutoTransition());
-//            expandableView.setVisibility(View.INVISIBLE);
-//            tv_sbMistakes.setText("");
-//            iv_show_mistakes_eye_icon.setImageDrawable(getResources().getDrawable(R.drawable.material_icon_show_mistakes_active, null));
-//        }
-//    }
 }
+
